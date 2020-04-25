@@ -1,0 +1,18 @@
+.dropdown-item {
+  display: block;
+  width: auto;
+  margin: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-border);
+  text-align: center;
+  transition: filter 300ms;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  filter: brightness(1.1);
+}

@@ -1,0 +1,24 @@
+.navbar {
+  background-color: var(--color-light);
+  border-radius: var(--radius-border);
+  position: sticky;
+  width: 60%;
+  height: 38px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 2px 6px rgba(97, 97, 97, 0.2);
+  z-index: 1000;
+}
+
+.destination-container {
+  left: 0%;
+  display: flex;
+  position: absolute;
+}
+
+.date-container {
+  right: 0%;
+  display: flex;
+  position: absolute;
+}

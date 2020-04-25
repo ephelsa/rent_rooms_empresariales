@@ -1,0 +1,54 @@
+.card-resume-container {
+  width: 20%;
+  display: inline-block;
+  background-color: var(--color-white);
+  border-radius: var(--radius-card-resume);
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 20px;
+  padding-bottom: 26px;
+  margin-left: 8px;
+  margin-right: 8px;
+  box-shadow: 0px 2px 2px 2px rgba(148, 148, 148, 0.15);
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+  position: relative;
+}
+
+.card-resume-container:hover {
+  box-shadow: 0px 2px 2px 2px rgba(148, 148, 148, 0.2);
+}
+
+.card-resume-container span {
+  display: block;
+}
+
+.card-resume-title {
+  font-size: 22px;
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  color: var(--color-primary);
+}
+
+.card-resume-image {
+  width: 100%;
+}
+
+.card-resume-city {
+  font-family: var(--font-secondary);
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 4px;
+  color: var(--color-black);
+}
+
+.card-resume-realstate {
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  color: var(--color-black);
+  right: 0;
+  display: flex;
+  position: absolute;
+  margin-right: 16px;
+  margin-left: 16px;
+}

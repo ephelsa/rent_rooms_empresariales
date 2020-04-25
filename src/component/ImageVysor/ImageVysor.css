@@ -1,0 +1,27 @@
+.image-vysor-container {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.image-vysor-description {
+  background-color: rgba(10, 10, 10, 0.35);
+  color: var(--color-white);
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  width: auto;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5%;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.image-vysor {
+  display: block;
+  width: 100%;
+}
