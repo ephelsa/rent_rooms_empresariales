@@ -5,11 +5,9 @@ import CardResumeList from './containers/CardResumeList/CardResumeList';
 
 function App() {
   return (
-    <div>
-      <Layout>
-        <CardResumeList />
-      </Layout>
-    </div>
+    <Layout>
+      <CardResumeList />
+    </Layout>
   );
 }
 

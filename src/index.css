@@ -1,30 +1,26 @@
 body {
   margin: 0px;
-  margin-top: 100px;
-  font-family: 'Roboto', sans-serif; /* font-family: 'Cairo', sans-serif; */
-  background-image: url('./assets/bgMain.jpg');
-  background-position: center;
-  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Cairo', sans-serif; */
+  /* background-image: url('./assets/bgMain.jpg'); */
+  /* background-position: center; */
+  /* background-size: cover; */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 :root {
-  --color-primary: #84A98C;
-  --color-secondary: #C1CC99;
+  --color-primary: #006BB1;
+  --color-secondary: #2195c6;
   --color-accent: #E4FDE1;
   --color-light: #F0F0F0;
   --color-white: #ffffff;
   --color-black: #252525;
-
   --color-font-primary: #000000;
   --color-font-inverse: #ffffff;
-
   --radius-border: 4px;
   --radius-card-resume: 2px;
-
   --font-secondary: 'Cairo', sans-serif;
 }

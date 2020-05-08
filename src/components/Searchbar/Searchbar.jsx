@@ -22,11 +22,11 @@ function Searchbar() {
   return (
     <div className="searchbar">
       <div className="destination-container">
-        <Dropdown options={options} 
-                  placeHolder={"Destino"}
-                  icon={faPlaneDeparture} 
-                  onOptionSelected={destinationCallback}
-                  borderType="left-border" />
+        <Dropdown options={options}
+          placeHolder={"Destino"}
+          icon={faPlaneDeparture}
+          onOptionSelected={destinationCallback}
+          borderType="left-border" />
       </div>
 
       <div className="date-container">
