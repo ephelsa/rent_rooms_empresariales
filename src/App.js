@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Layout from './container/Layout/Layout';
-import CardResumeList from './container/CardResumeList/CardResumeList';
+import Layout from './containers/Layout/Layout';
+import CardResumeList from './containers/CardResumeList/CardResumeList';
 
 function App() {
   return (

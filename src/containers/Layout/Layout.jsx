@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './Layout.css';
-import Navbar from '../../component/Navbar/Navbar';
+import Searchbar from '../../components/Searchbar/Searchbar';
 
 
 class Layout extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Searchbar/>
         <div className="layout-content">{this.props.children}</div>
       </div>
     );

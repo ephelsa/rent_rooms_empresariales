@@ -1,7 +1,7 @@
 import React from 'react';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
-import Dropdown from '../../container/Dropdown/Dropdown';
-import './Navbar.css';
+import Dropdown from '../../containers/Dropdown/Dropdown';
+import './Searchbar.css';
 
 const options = [
   { id: 1, value: 'Medellín' },
@@ -13,14 +13,14 @@ const options = [
   { id: 7, value: 'Cúcuta' },
 ];
 
-function Navbar() {
+function Searchbar() {
 
   const destinationCallback = (destination) => {
     console.log('Destination selected ->', destination)
   }
 
   return (
-    <div className="navbar">
+    <div className="searchbar">
       <div className="destination-container">
         <Dropdown options={options} 
                   placeHolder={"Destino"}
@@ -38,4 +38,4 @@ function Navbar() {
 }
 
 
-export default Navbar;
+export default Searchbar;

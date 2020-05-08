@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CardResume from '../../component/CardResume/CardResume';
+import CardResume from '../../components/CardResume/CardResume';
 
 
 import HotelSuperGenial from '../../assets/hotel_test.jpg';
