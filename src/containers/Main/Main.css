@@ -1,0 +1,14 @@
+.main {
+    /* background-image: url('../../assets/bgMain.jpg'); */
+    background-position: center;
+    background-size: cover;
+}
+
+.main h1 {
+    padding: 100px;
+    margin: 0px;
+    text-align: center;
+    font-weight: bolder;
+    color: #006BB1;
+    font-size: 50px;
+  }

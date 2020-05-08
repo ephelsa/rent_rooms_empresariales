@@ -1,13 +1,16 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom'
 
 import Layout from './containers/Layout/Layout';
-import CardResumeList from './containers/CardResumeList/CardResumeList';
+import Main from './containers/Main/Main'
 
 function App() {
   return (
-    <Layout>
-      <CardResumeList />
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Main />
+      </Layout>
+    </BrowserRouter>
   );
 }
 
