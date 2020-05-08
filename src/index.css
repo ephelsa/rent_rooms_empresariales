@@ -1,8 +1,10 @@
 body {
+  margin: 0px;
+  margin-top: 100px;
   font-family: 'Roboto', sans-serif; /* font-family: 'Cairo', sans-serif; */
-  
-  margin-left: 40px;
-  margin-right: 40px;
+  background-image: url('./assets/bgMain.jpg');
+  background-position: center;
+  background-size: cover;
 }
 
 code {
