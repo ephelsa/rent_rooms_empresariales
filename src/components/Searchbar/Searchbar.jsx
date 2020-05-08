@@ -39,21 +39,21 @@ function Searchbar() {
    var datosLambda="";
     axios.get(urlBackendLambda+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
     .then(responseLambda => {
-      console.log(responseLambda.data);     
+     var habitacionesdesdeLambda=responseLambda.data; //Aquí estan las habitaciones desde lambda 
       })
     .catch(e => {
         console.log(e);
     })
     axios.get(urlBackendNode+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
     .then(responseNodeJs => {
-      console.log(responseNodeJs.data)
+    var habitacionesdesdeNode=responseNodeJs.data; //Aquí estan las habitaciones desde Node 
     })
     .catch(e => {
       console.log(e);
   })
   axios.get(urlBackendPython+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
     .then(responsePython => {
-      console.log(responsePython.data)
+     var habitacionesDesdePython=responsePython.data; //Aquí estan las habitaciones desde Python
     })
     .catch(e => {
       console.log(e);
