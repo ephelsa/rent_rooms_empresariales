@@ -1,1 +1,0 @@
-pscp -i C:\Users\killerwpor\Desktop\rent_rooms_empresariales\Credenciales\credenciales.ppk -r C:\Users\killerwpor\Desktop\rent_rooms_empresariales\build\* ubuntu@ec2-18-219-85-190.us-east-2.compute.amazonaws.com:/opt/front-end
