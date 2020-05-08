@@ -37,7 +37,9 @@ function Searchbar() {
    var checkin="2020-05-09";
    var checkout="2020-06-10";
    var datosLambda="";
-   /* axios.get(urlBackendLambda+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
+   /*
+   ESTA AUN NO LA PUBLICAN 
+   axios.get(urlBackendLambda+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout) 
     .then(responseLambda => {
      var habitacionesdesdeLambda=responseLambda.data; //Aquí estan las habitaciones desde lambda 
       })
@@ -47,6 +49,7 @@ function Searchbar() {
     axios.get(urlBackendNode+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
     .then(responseNodeJs => {
     var habitacionesdesdeNode=responseNodeJs.data; //Aquí estan las habitaciones desde Node 
+    console.log(habitacionesdesdeNode);
     })
     .catch(e => {
       console.log(e);
@@ -54,11 +57,94 @@ function Searchbar() {
   axios.get(urlBackendPython+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
     .then(responsePython => {
      var habitacionesDesdePython=responsePython.data; //Aquí estan las habitaciones desde Python
+     console.log(habitacionesDesdePython);
     })
     .catch(e => {
       console.log(e);
   })
   }
+
+  const busquedadetallesHabitaciones=()=>{   
+    const urlBackendLambda="https://34ld77s309.execute-api.us-east-1.amazonaws.com/prod/rooms/";
+    const urlBackendNode="http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/";
+    const urlBackendPython="http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/";
+    var idHabitacion1="5eb24077bf3587508244c267";
+    var idHabitacion2="1";
+     axios.get(urlBackendLambda+idHabitacion2)
+     .then(responseLambda => {
+      var detallesDesdeLambda=responseLambda; //Aquí estan los detalles desde lambda 
+      console.log(detallesDesdeLambda);
+       })
+     .catch(e => {
+         console.log(e);
+     })
+     axios.get(urlBackendNode+idHabitacion1)
+     .then(responseNodeJs => {
+     var detallesDesdeNode=responseNodeJs.data; //Aquí estan los detalles desde Node 
+     console.log(detallesDesdeNode);
+     })
+     .catch(e => {
+       console.log(e);
+   })
+  axios.get(urlBackendPython+idHabitacion2)
+     .then(responsePython => {
+      var DetallesDesdePython=responsePython.data; //Aquí estan los detalles desde Python
+      console.log(DetallesDesdePython);
+     })
+     .catch(e => {
+       console.log(e);
+   })
+   }
+
+
+   const reservarHabitaciones=()=>{   
+    const urlBackendLambda="";
+    const urlBackendNode="http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/booking";
+    const urlBackendPython="http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/booking";
+    var idHabitacion1="5eb24077bf3587508244c267";
+    var idHabitacion2="1";
+     /*
+     Error de este Backend
+     axios.post(urlBackendLambda+idHabitacion2)
+     .then(responseLambda => {
+      var detallesDesdeLambda=responseLambda; //Aquí estan los detalles desde lambda 
+      console.log(detallesDesdeLambda);
+       })
+     .catch(e => {
+         console.log(e);
+     })*/
+     axios.post(urlBackendNode,{      
+        checkin: "2020-07-06",
+      checkout: "2020-07-10",
+        email: "johanc.suarez@hotmail.com",
+        name: "Pedro",
+        id_room: idHabitacion1  
+    })
+     .then(responseNodeJs => {
+     var detallesDesdeNode=responseNodeJs.data; //Aquí estan los detalles desde Node 
+     console.log(detallesDesdeNode);
+     })
+     .catch(e => {
+       console.log(e);
+   })
+
+   /*
+   Eror de este backend
+   axios.post(urlBackendPython, {      
+    "checkin": "2020-07-06",
+    "checkout": "2020-07-10",
+    "email": "johanc.suarez@hotmail.com",
+    "name": "Pedro",
+    "id_room": idHabitacion2   
+})
+     .then(responsePython => {
+      var DetallesDesdePython=responsePython.data; //Aquí estan los detalles desde Python
+      console.log(DetallesDesdePython);
+     })
+     .catch(e => {
+       console.log(e);
+   })*/
+   }
 
   const destinationCallback = (destination) => {
     console.log('Destination selected ->', destination);
