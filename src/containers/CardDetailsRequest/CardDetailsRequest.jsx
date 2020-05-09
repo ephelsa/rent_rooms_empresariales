@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import CardDetails from '../../components/CardDetails/CardDetails';
 import './CardDetailsRequest.css'
@@ -9,52 +10,51 @@ import logo from '../../assets/Details/logo.jpg'
 
 class CardDetailsRequest extends Component {
 
-     busquedadetallesHabitaciones(agenciaQueHaceElRequest){ 
-        const urlBackendLambda="https://34ld77s309.execute-api.us-east-1.amazonaws.com/prod/rooms/";
-        const urlBackendNode="http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/";
-        const urlBackendPython="http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/";
-        var idHabitacion1="5eb24077bf3587508244c267";
-        var idHabitacion2="1";
-         switch(agenciaQueHaceElRequest){
-             case agencia1:
-                axios.get(urlBackendLambda+idHabitacion2)
-                .then(responseLambda => {
-                 var detallesDesdeLambda=responseLambda; //Aquí estan los detalles desde lambda 
-                 console.log(detallesDesdeLambda);
-                 //Aqui se modificaria el estado.
-                  })
-                .catch(e => {
-                    console.log(e);
-                })
-                break;
-                case agencia2:
-                    axios.get(urlBackendNode+idHabitacion1)
-                    .then(responseNodeJs => {
-                    var detallesDesdeNode=responseNodeJs.data; //Aquí estan los detalles desde Node 
-                    console.log(detallesDesdeNode);
-                    //Aqui se modificaria el estado
+    busquedadetallesHabitaciones(agenciaQueHaceElRequest) {
+        const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/";
+        const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/";
+        const urlBackendLambda = "https://0kaup1m6dg.execute-api.us-east-1.amazonaws.com/prod/rooms/";
+        var idHabitacion1 = "5eb24077bf3587508244c267";
+        var idHabitacion2 = "1";
+
+        switch (agenciaQueHaceElRequest) {
+            case "agencia1":
+                axios.get(urlBackendLambda + idHabitacion2)
+                    .then(responseLambda => {
+                        var detallesDesdeLambda = responseLambda; //Aquí estan los detalles desde lambda 
+                        console.log(detallesDesdeLambda);
+                        //Aqui se modificaria el estado.
                     })
                     .catch(e => {
-                      console.log(e);
-                  })
-                  break;
-                case agencia3:
-                    axios.get(urlBackendPython+idHabitacion2)
-         .then(responsePython => {
-          var DetallesDesdePython=responsePython.data; //Aquí estan los detalles desde Python
-          console.log(DetallesDesdePython);
-          //Aqui se modificaria el estado
-         })
-         .catch(e => {
-           console.log(e);
-       })
-       }
-       break;
-         }  
-        
-       
-       
-      
+                        console.log(e);
+                    })
+                break;
+            case "agencia2":
+                axios.get(urlBackendNode + idHabitacion1)
+                    .then(responseNodeJs => {
+                        var detallesDesdeNode = responseNodeJs.data; //Aquí estan los detalles desde Node 
+                        console.log(detallesDesdeNode);
+                        //Aqui se modificaria el estado
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    })
+                break;
+            case "agencia3":
+                axios.get(urlBackendPython + idHabitacion2)
+                    .then(responsePython => {
+                        var DetallesDesdePython = responsePython.data; //Aquí estan los detalles desde Python
+                        console.log(DetallesDesdePython);
+                        //Aqui se modificaria el estado
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    })
+                    break;
+            default:
+                console.log("Error");
+        }
+    }
 
     state = {
         details: {
