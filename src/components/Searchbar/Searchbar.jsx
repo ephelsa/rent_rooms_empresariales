@@ -29,40 +29,7 @@ function boton(){
 function Searchbar() {
 
   
-  const busquedaGeneralHabitaciones=()=>{   
-   //const urlBackendLambda="";
-   const urlBackendNode="http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/search?";
-   const urlBackendPython="http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/search?"
-   var ciudad="MDE";
-   var checkin="2020-05-09";
-   var checkout="2020-06-10";
-   var datosLambda="";
-   /*
-   ESTA AUN NO LA PUBLICAN 
-   axios.get(urlBackendLambda+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout) 
-    .then(responseLambda => {
-     var habitacionesdesdeLambda=responseLambda.data; //Aquí estan las habitaciones desde lambda 
-      })
-    .catch(e => {
-        console.log(e);
-    })*/
-    axios.get(urlBackendNode+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
-    .then(responseNodeJs => {
-    var habitacionesdesdeNode=responseNodeJs.data; //Aquí estan las habitaciones desde Node 
-    console.log(habitacionesdesdeNode);
-    })
-    .catch(e => {
-      console.log(e);
-  })
-  axios.get(urlBackendPython+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
-    .then(responsePython => {
-     var habitacionesDesdePython=responsePython.data; //Aquí estan las habitaciones desde Python
-     console.log(habitacionesDesdePython);
-    })
-    .catch(e => {
-      console.log(e);
-  })
-  }
+
 
   const busquedadetallesHabitaciones=()=>{   
     const urlBackendLambda="https://34ld77s309.execute-api.us-east-1.amazonaws.com/prod/rooms/";

@@ -16,7 +16,7 @@ class CardResumeList extends Component {
        //alert("entró");
 //const urlBackendLambda="";
 const urlBackendNode="http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/search?";
-const urlBackendPython="http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/search?"
+const urlBackendPython="http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/search?"
 var ciudad="MDE";
 var checkin="2020-05-09";
 var checkout="2020-06-10";
