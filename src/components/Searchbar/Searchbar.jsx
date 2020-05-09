@@ -14,17 +14,11 @@ const options = [
   { id: 7, value: 'Cúcuta' },
 ];
 
-
-
 function boton(){
   return(<div>
     Botón de prueba para los request (en consola se muestran los resultados)<button>Click</button>
   </div>)
 }
-
-
-
-
 
 function Searchbar() {
 

@@ -6,10 +6,13 @@ import './CardDetails.css';
 const CardDetails = ({ img, city, price, totalPrice, realState, realStateLogo, name, rating, services }) => {
   return (
     <div className="card-details-container">
-      <span className="card-details-title">{name}</span>
+      <h1 className="card-details-title">{name}</h1>
       <img className="card-details-image" src={img} alt="img" />
-      <span className="card-details-city">{city}</span>
-      <span className="card-details-realstate">Inmobiliaria: {realState}</span>
+      <div className="right">
+        <span className="card-details-city">{city}</span>
+        <span className="card-details-realstate">Inmobiliaria: {realState}</span>
+      </div>
+      <p>{services}</p>
     </div>
   );
 };
