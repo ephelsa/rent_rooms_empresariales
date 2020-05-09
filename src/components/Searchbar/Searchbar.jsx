@@ -97,23 +97,6 @@ function Searchbar() {
       .catch(e => {
         console.log(e);
       })
-
-    /*
-    Eror de este backend
-    axios.post(urlBackendPython, {      
-     "checkin": "2020-07-06",
-     "checkout": "2020-07-10",
-     "email": "johanc.suarez@hotmail.com",
-     "name": "Pedro",
-     "id_room": idHabitacion2   
- })
-      .then(responsePython => {
-       var DetallesDesdePython=responsePython.data; //Aquí estan los detalles desde Python
-       console.log(DetallesDesdePython);
-      })
-      .catch(e => {
-        console.log(e);
-    })*/
   }
 
   // const destinationCallback = (destination) => {
