@@ -21,7 +21,7 @@ class CardDetailsRequest extends Component {
                 .then(responseLambda => {
                  var detallesDesdeLambda=responseLambda; //Aquí estan los detalles desde lambda 
                  console.log(detallesDesdeLambda);
-                 //Aqui se modificaria el estado
+                 //Aqui se modificaria el estado.
                   })
                 .catch(e => {
                     console.log(e);
