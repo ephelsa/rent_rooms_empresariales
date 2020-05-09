@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import CardResume from '../../components/CardResume/CardResume';
 
 
@@ -10,14 +11,62 @@ import HostalMucura from '../../assets/hotel_mucura.webp';
 
 
 class CardResumeList extends Component {
-  state = {
+
+     busquedaGeneral(){
+       //alert("entró");
+//const urlBackendLambda="";
+const urlBackendNode="http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/search?";
+const urlBackendPython="http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/search?"
+var ciudad="MDE";
+var checkin="2020-05-09";
+var checkout="2020-06-10";
+var datosLambda="";
+/*
+ESTA AUN NO LA PUBLICAN 
+axios.get(urlBackendLambda+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout) 
+ .then(responseLambda => {
+  var habitacionesdesdeLambda=responseLambda.data; //Aquí estan las habitaciones desde lambda 
+   })
+ .catch(e => {
+     console.log(e);
+ })*/
+ axios.get(urlBackendNode+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
+ .then(responseNodeJs => {
+   responseNodeJs.data.map(elemento=>{
+    this.setState({cards: [ ...this.state.cards,{id: elemento.id, title: elemento.property_name, city: elemento.location.name, img: elemento.thumbnail, price: elemento.price, realState: elemento.agency.name}]});
+   })
+   
+})
+ .catch(e => {
+   console.log(e);
+})
+axios.get(urlBackendPython+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout)
+ .then(responsePython => {
+  var habitacionesDesdePython=responsePython.data; //Aquí estan las habitaciones desde Python
+  habitacionesDesdePython.map(elemento=>{
+    this.setState({cards: [ ...this.state.cards,{id: elemento.id, title: elemento.property_name, city: elemento.location.name, img: elemento.thumbnail, price: elemento.price, realState: elemento.agency.name}]});
+   })
+ })
+ .catch(e => {
+   console.log(e);
+})
+     }
+
+ constructor(props){
+   super(props);
+   this.state = {
     cards: [
       { id: 1, title: 'Hotel Súper Genial', city: 'En algún lugar del mundo', img: HotelSuperGenial, price: 200000, realState: 'Amarilo' },
-      { id: 2, title: 'Hostal de Ciudad Esmeralda', city: 'Ciudad Esmeralda', img: HostalCiudadEsmeralda, price: 20, realState: 'OZ' },
-      { id: 3, title: 'Puesto del Viaje de chihiro', city: 'Jiufen', img: PuestoViajeChihiro, price: 80000, realState: 'Miyazaki' },
-      { id: 4, title: 'Hostal de Isla Múcura', city: 'Isla Múcura', img: HostalMucura, price: 320000, realState: 'Tritón' },
     ]
   }
+
+  this.busquedaGeneral = this.busquedaGeneral.bind(this);
+ }
+ 
+ componentDidMount() {
+  this.busquedaGeneral();
+}
+  
 
   render() {
     const cards = this.state.cards.map(card => (
