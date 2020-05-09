@@ -24,7 +24,7 @@ class CardResumeList extends Component {
           key: elemento.id + elemento.agency.id
         }] });
       })
-       })
+    })
      .catch(e => {
          console.log(e);
      })
@@ -85,7 +85,7 @@ class CardResumeList extends Component {
     const codCity = this.state.query.split('location=')[1].split('&')[0]
 
     this.props.history.push({ 
-      pathname: `details/${codCity}/${agency.name}/${room.title}`
+      pathname: `details/${codCity}/${agency.name}/${room.id}/${room.title}`
     })
   }
 
