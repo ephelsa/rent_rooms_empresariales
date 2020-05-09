@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import { registerLocale } from "react-datepicker";
-import Dropdown from '../../containers/Dropdown/Dropdown';
+import Dropdown from '../Dropdown/Dropdown';
 import './Searchbar.css';
 import es from 'date-fns/locale/es';
 import DatePicker from "react-datepicker";

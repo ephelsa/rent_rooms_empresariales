@@ -3,7 +3,7 @@ import { Route, Redirect, Switch } from 'react-router-dom'
 
 import { Page404 } from './components/PageHandler/PageHandler';
 import Layout from './containers/Layout/Layout';
-import Main from './containers/Main/Main'
+import Main from './components/Main/Main'
 import Cards from './containers/CardResumeList/CardResumeList'
 import Details from './containers/CardDetailsRequest/CardDetailsRequest'
 
