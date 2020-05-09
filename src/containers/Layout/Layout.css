@@ -1,7 +1,5 @@
 .layout-content {
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 20px;
+  margin-top: var(--nav-height);
   align-content: center;
   align-items: center;
 }

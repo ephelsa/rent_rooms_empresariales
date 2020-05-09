@@ -15,6 +15,10 @@ function App() {
         <Route exact path="/search" component={Cards} />
         <Route path="/details/:codCity/:agencyName/:name" component={Details} />
         <Route path="/404" component={Page404} />
+
+        <Route path="/">
+          <Redirect to="/home" />
+        </Route>
         <Route>
           <Redirect to="/404" />
         </Route>

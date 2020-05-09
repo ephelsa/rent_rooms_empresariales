@@ -3,6 +3,7 @@
     background-image: url('../../assets/bgMain.jpg');
     background-position: center;
     background-size: cover;
+    min-width: 100vw;
 }
 
 .main h1 {

@@ -17,20 +17,15 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const options = [
-  { id: 1, value: 'Medellín' },
-  { id: 2, value: 'Cartagena' },
-  { id: 3, value: 'Bogotá' },
-  { id: 4, value: 'Santa Marta' },
-  { id: 5, value: 'Valledupar' },
-  { id: 6, value: 'Manizales' },
-  { id: 7, value: 'Cúcuta' },
+  { id: 'MDE', value: 'Medellín' },
+  { id: 'BOG', value: 'Bogotá' },
+  { id: 'CLO', value: 'Cali' },
+  { id: 'BAQ', value: 'Barranquilla' },
+  { id: 'CTG', value: 'Cartagena' },
+  { id: 'CUC', value: 'Cúcuta' },
+  { id: 'SLD', value: 'Soledad' },
+  { id: 'IBE', value: 'Ibagué' },
 ];
-
-function boton() {
-  return (<div>
-    Botón de prueba para los request (en consola se muestran los resultados)<button>Click</button>
-  </div>)
-}
 
 function Searchbar() {
 

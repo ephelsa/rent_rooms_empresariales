@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 import CardResume from '../../components/CardResume/CardResume';
@@ -67,7 +67,8 @@ class CardResumeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cards: []
+      cards: [],
+      query: '',
     }
 
     this.busquedaGeneral = this.busquedaGeneral.bind(this);
@@ -75,22 +76,29 @@ class CardResumeList extends Component {
 
   componentDidMount() {
     const query = this.props.location.search;
+    this.setState({query: query})
     this.busquedaGeneral(query);
   }
 
-  handleCardDetails(idRealState) {
-    console.log("[CardResumeList] ID real state ->", idRealState)
+  handleCardDetails(room, agency) {
+    console.log("[CardResumeList] Card callback ->", room, agency)
+    const codCity = this.state.query.split('location=')[1].split('&')[0]
+
+    this.props.history.push({ 
+      pathname: `details/${codCity}/${agency.name}/${room.title}`
+    })
   }
 
   render() {
     const mesaje = <h1>No se encontraron resultados</h1>
     const cards = this.state.cards.map((card, index) => (
-      <CardResume title={card.title}
+      <CardResume id={card.id}
+        title={card.title}
         city={card.city}
         img={card.img}
         price={card.price}
         agency={card.agency}
-        onCardResumeClick={this.handleCardDetails}
+        onCardResumeClick={(room, agency) => this.handleCardDetails(room, agency)}
         raiting={4.5}
         key={`${card.key}-${index}`} />
     ));
