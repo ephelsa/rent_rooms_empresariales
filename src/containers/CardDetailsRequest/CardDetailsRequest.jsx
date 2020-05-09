@@ -20,7 +20,7 @@ class CardDetailsRequest extends Component {
             realStateLogo: logo,
             name: 'Habitacion en Robledo',
             rating: 0,
-            services: ["Wifi", "Baño Privado"]
+            services: ["Wifi", "Baño Privado", "Otros"]
         }
     }
 
