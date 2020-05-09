@@ -8,13 +8,18 @@ import './CardDetails.css';
 const CardDetails = ({ img, city, price, totalPrice, realState, realStateLogo, name, rating, services }) => {
   return (
     <div className="card-details-container">
-      <h1 className="card-details-title">{name}</h1>
-      <ImageVysor width="100%" src={img} alt="demo" description>
-        <Raiting raiting={rating} size="3x" />
-      </ImageVysor>
+      <div className="card-details-first">
+        <h1 className="card-details-title">{name}</h1>
+        <b className="card-details-city">{city}</b>
+      </div>
+      <div className="card-details-image">
+        <ImageVysor width="100%" src={img} alt="demo" description>
+          <Raiting raiting={rating} size="3x" />
+        </ImageVysor>
+      </div>
       <div className="card-details-right">
-        <span className="card-details-city">Ciudad: {city}</span>
-        <h1 className="card-details-description">Descripción</h1>
+        <h2 className="card-details-description">Descripción</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ratione consequatur, provident tenetur pariatur minima qui eum, consectetur reprehenderit sapiente commodi debitis eligendi laudantium aperiam nobis sit quaerat! Ab, eveniet! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam pariatur adipisci quaerat impedit ducimus, ipsa, earum numquam quidem quos eos assumenda obcaecati at repellendus sit consequuntur et mollitia in laboriosam.</p>
         <h1>Precio: {price}$</h1>
       </div>
       <div className="card-details-services">

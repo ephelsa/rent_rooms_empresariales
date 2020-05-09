@@ -11,7 +11,7 @@ const CardResume = ({id, title, city, img, price, agency, onCardResumeClick, rai
       <span className="card-resume-city">{city}</span>
       <ImageVysor width='100%' src={img} alt="Demo" description="$24">
         <span>${price}</span>
-        <Raiting raiting={raiting} size="s"/>
+        <Raiting raiting={raiting} size="1x"/>
       </ImageVysor>
       <span className="card-resume-realstate">Inmobiliaria: {agency.name}</span>
     </div>

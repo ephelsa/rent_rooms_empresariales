@@ -2,9 +2,9 @@
   display: grid;
   min-height: 80vh;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 6em 1fr 2em;
+  grid-template-rows: 8em 1fr 2em;
   margin: auto;
-  width: 80%;
+  width: 65%;
   background-color: var(--color-white);
   border-radius: 10px;
   padding: 26px 16px;
@@ -16,20 +16,29 @@
   box-shadow: 0px 3px 20px -10px var(--color-primary);
 }
 
-.card-details-title {
+.card-details-first {
   grid-column-start: 1;
   grid-column-end: -1;
   grid-row-start: 1;
   grid-row-end: 1;
   text-align: center;
+}
+
+.card-details-title {
+  margin: 0px;
   font-family: var(--font-secondary);
   color: var(--color-primary);
 }
 
+.card-details-city {
+  color: var(--color-black);
+  font-family: var(--font-secondary);
+  font-size: 25px;
+  margin-bottom: 4px;
+}
+
 .card-details-image {
-  box-shadow: 0px 3px 20px -10px var(--color-primary);
-  width: max-content;
-  padding: 10px;
+  padding: 13px;
   grid-column: 1;
   grid-row: 2;
 }
@@ -39,13 +48,15 @@
   text-align: center;
 }
 
-.card-details-city {
-  font-family: var(--font-secondary);
-  font-size: 20px;
-  font-weight: 300;
-  margin-bottom: 4px;
-  color: var(--color-black);
+.card-details-right p{
+  text-align: justify;
+  margin-bottom: 100px;
 }
+
+.card-details-description{
+  margin-bottom: 20px;
+}
+
 
 .card-details-realstate {
   grid-column: 2;

@@ -13,9 +13,6 @@ import "react-datepicker/dist/react-datepicker.css";
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 
-
-
-
 const options = [
   { id: 'MDE', value: 'Medellín' },
   { id: 'BOG', value: 'Bogotá' },
@@ -100,7 +97,7 @@ function Searchbar() {
 
   registerLocale('es', es)
   const [destination, setDestination] = useState('');
-  
+
   const destinationCallback = (dest) => {
     setDestination(dest);
   }
@@ -132,39 +129,35 @@ function Searchbar() {
           borderType="left-border" />
       </div>
 
-      <div className="date-container">
-        <span>
-          <DatePicker
-            onChange={date => setStartDate(date)}
-            locale="es"
-            title="fechas"
-            selected={startDate}
-            selectsStart
-            startDate={startDate}
-            minDate={new Date()}
-            endDate={endDate}
-            key="1"
-            onBlur={handleOnBlur}
-            placeholderText="Fecha Entrada "
-          />
-          <DatePicker
-            locale="es"
-            selected={endDate}
-            onChange={date => setEndDate(date)}
-            selectsEnd
-            startDate={startDate}
-            endDate={endDate}
-            minDate={startDate}
-            key="2"
-            onBlur={handleOnBlur1}
-            placeholderText="Fecha Salida "
-          />
-        </span>
-      </div>
-      <div className="date-container">
-        <span>
-          <button onClick={datasearch}>Buscar</button>
-        </span>
+        <DatePicker
+          className="red"
+          onChange={date => setStartDate(date)}
+          locale="es"
+          title="fechas"
+          selected={startDate}
+          selectsStart
+          startDate={startDate}
+          minDate={new Date()}
+          endDate={endDate}
+          key="1"
+          onBlur={handleOnBlur}
+          placeholderText="Fecha Entrada "
+        />
+        <DatePicker
+          className="red"
+          locale="es"
+          selected={endDate}
+          onChange={date => setEndDate(date)}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
+          key="2"
+          onBlur={handleOnBlur1}
+          placeholderText="Fecha Salida "
+        />
+      <div className="date-container-button">
+        <button className="searchbar-button" onClick={datasearch}>Buscar</button>
       </div>
     </div>
   );
