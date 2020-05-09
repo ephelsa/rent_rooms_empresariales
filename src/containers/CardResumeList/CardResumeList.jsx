@@ -7,16 +7,17 @@ class CardResumeList extends Component {
   busquedaGeneral(query) {
     const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/search";
     const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/search"
-    const datosLambda = "https://0kaup1m6dg.execute-api.us-east-1.amazonaws.com/dev/rooms/search";
-    /*
-    ESTA AUN NO LA PUBLICAN 
-    axios.get(urlBackendLambda+'location='+ciudad+'&checkin='+checkin+'&checkout='+checkout) 
-     .then(responseLambda => {
-      var habitacionesdesdeLambda=responseLambda.data; //Aquí estan las habitaciones desde lambda 
+    const urlBackendLambda = "https://0kaup1m6dg.execute-api.us-east-1.amazonaws.com/dev/rooms/search";
+  
+    axios.get(urlBackendLambda+query) 
+    .then(responseLambda => {
+      responseLambda.data.map(elemento => {
+        this.setState({ cards: [...this.state.cards, { id: elemento.id, title: elemento.property_name, city: elemento.location.name, img: elemento.thumbnail, price: elemento.price, realState: elemento.agency.name }] });
+      })
        })
      .catch(e => {
          console.log(e);
-     })*/
+     })
     axios.get(urlBackendNode + query)
       .then(responseNodeJs => {
         responseNodeJs.data.map(elemento => {
