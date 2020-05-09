@@ -91,6 +91,7 @@ class CardResumeList extends Component {
         price={card.price}
         agency={card.agency}
         onCardResumeClick={this.handleCardDetails}
+        raiting={4.5}
         key={`${card.key}-${index}`} />
     ));
 

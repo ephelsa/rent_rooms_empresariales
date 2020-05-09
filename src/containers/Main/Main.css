@@ -1,5 +1,6 @@
 .main {
-    /* background-image: url('../../assets/bgMain.jpg'); */
+    min-height: 100vh;
+    background-image: url('../../assets/bgMain.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -11,4 +12,4 @@
     font-weight: bolder;
     color: #006BB1;
     font-size: 50px;
-  }
+}

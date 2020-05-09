@@ -67,7 +67,7 @@ class CardDetailsRequest extends Component {
             realState: 'Arrendamientos njs',
             realStateLogo: logo,
             name: 'Habitacion en Robledo',
-            rating: 0,
+            rating: 4.2,
             services: ["Wifi", "Baño Privado", "Otros"]
         }
     }
