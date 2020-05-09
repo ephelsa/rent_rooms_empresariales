@@ -6,10 +6,9 @@ import './Searchbar.css';
 import es from 'date-fns/locale/es';
 import DatePicker from "react-datepicker";
 import moment from 'moment'
-
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
-
+import { useHistory } from 'react-router-dom'
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 
@@ -24,7 +23,8 @@ const options = [
   { id: 'IBE', value: 'Ibagué' },
 ];
 
-function Searchbar() {
+const Searchbar = (props) => {
+  const history = useHistory();
 
   const busquedadetallesHabitaciones = () => {
     const urlBackendLambda = "https://34ld77s309.execute-api.us-east-1.amazonaws.com/prod/rooms/";
@@ -91,10 +91,6 @@ function Searchbar() {
       })
   }
 
-  // const destinationCallback = (destination) => {
-  //   console.log('Destination selected ->', destination);
-  // }
-
   registerLocale('es', es)
   const [destination, setDestination] = useState('');
 
@@ -116,7 +112,8 @@ function Searchbar() {
   function datasearch() {
     const Datastar = moment(startDate).format('YYYY-MM-DD')
     const Dataend = moment(endDate).format('YYYY-MM-DD')
-    console.log(destination, Datastar, Dataend)
+    let query = `?location=${destination.id}&checkin=${Datastar}&checkout=${Dataend}`
+    history.push(`search${query}`)
   }
 
   return (
