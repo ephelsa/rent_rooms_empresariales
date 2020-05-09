@@ -11,31 +11,21 @@
   z-index: 1000;
 }
 
-.destination-container {
-  left: 0%;
-  display: flex;
-  position: absolute;
-}
-
-/* .date-container {
-  margin-left: auto;
-  margin-right: auto;
-} */
-
 .date-container-button {
   right: 0%;
   display: flex;
   position: absolute;
 }
 
-.red {
+.date-container-left {
   padding: 10px;
+  margin-left: 50px;
+  cursor: pointer;
 }
 
-.date-container {
-  margin-left: auto;
-  margin-right: auto;
+.date-container-right {
   padding: 10px;
+  cursor: pointer;
 }
 
 .searchbar-button {

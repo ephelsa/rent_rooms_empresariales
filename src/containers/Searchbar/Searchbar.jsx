@@ -128,34 +128,33 @@ function Searchbar() {
           onOptionSelected={destinationCallback}
           borderType="left-border" />
       </div>
-
-        <DatePicker
-          className="red"
-          onChange={date => setStartDate(date)}
-          locale="es"
-          title="fechas"
-          selected={startDate}
-          selectsStart
-          startDate={startDate}
-          minDate={new Date()}
-          endDate={endDate}
-          key="1"
-          onBlur={handleOnBlur}
-          placeholderText="Fecha Entrada "
-        />
-        <DatePicker
-          className="red"
-          locale="es"
-          selected={endDate}
-          onChange={date => setEndDate(date)}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-          key="2"
-          onBlur={handleOnBlur1}
-          placeholderText="Fecha Salida "
-        />
+      <DatePicker
+        className="date-container-left"
+        onChange={date => setStartDate(date)}
+        locale="es"
+        title="fechas"
+        selected={startDate}
+        selectsStart
+        startDate={startDate}
+        minDate={new Date()}
+        endDate={endDate}
+        key="1"
+        onBlur={handleOnBlur}
+        placeholderText="Fecha Entrada "
+      />
+      <DatePicker
+        className="date-container-right"
+        locale="es"
+        selected={endDate}
+        onChange={date => setEndDate(date)}
+        selectsEnd
+        startDate={startDate}
+        endDate={endDate}
+        minDate={startDate}
+        key="2"
+        onBlur={handleOnBlur1}
+        placeholderText="Fecha Salida "
+      />
       <div className="date-container-button">
         <button className="searchbar-button" onClick={datasearch}>Buscar</button>
       </div>
