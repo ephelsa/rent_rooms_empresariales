@@ -18,26 +18,36 @@
 }
 
 .date-container-left {
-  padding: 10px;
-  margin-left: 50px;
   cursor: pointer;
+  height: 32px;
+  border: 2px solid var(--color-primary);
+  border-right: 1px;
+  font-size: var(--font-size);
+  text-align: center;
 }
 
 .date-container-right {
-  padding: 10px;
   cursor: pointer;
+  padding-left: 16px;
+  height: 32px;
+  border: 2px solid var(--color-primary);
+  border-left: 1px;
+  font-size: var(--font-size);
 }
 
 .searchbar-button {
-  right: 0%;
-  width: auto;
-  padding: 10px;
-  padding-left: 30px;
   background-color: var(--color-primary);
   color: var(--color-font-inverse);
+  cursor: pointer;
+  height: 40px;
+  display: inline-block;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 24px;
+  padding-right: 24px;
   border-top-right-radius: var(--radius-border);
   border-bottom-right-radius: var(--radius-border);
-  cursor: pointer;
+  font-size: var(--font-size);
 }
 
 .searchbar-button:hover {

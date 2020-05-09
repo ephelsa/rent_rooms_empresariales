@@ -19,6 +19,7 @@ code {
   --color-font-inverse: #ffffff;
   --radius-border: 4px;
   --radius-card-resume: 2px;
+  --font-size: 16px;
   --font-secondary: 'Cairo', sans-serif;
   --nav-height: 60px;
 }
