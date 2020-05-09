@@ -17,9 +17,39 @@
   position: absolute;
 }
 
-.date-container {
+/* .date-container {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.date-container-button {
   right: 0%;
   display: flex;
   position: absolute;
+}
 
+.red {
+  padding: 10px;
+}
+
+.date-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+.searchbar-button {
+  right: 0%;
+  width: auto;
+  padding: 10px;
+  padding-left: 30px;
+  background-color: var(--color-primary);
+  color: var(--color-font-inverse);
+  border-top-right-radius: var(--radius-border);
+  border-bottom-right-radius: var(--radius-border);
+  cursor: pointer;
+}
+
+.searchbar-button:hover {
+  filter: brightness(1.1);
 }

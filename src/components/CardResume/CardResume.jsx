@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CardResume.css';
 import ImageVysor from '../ImageVysor/ImageVysor';
-import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Raiting from '../Raiting/Raiting';
 
 const CardResume = ({title, city, img, price, agency, onCardResumeClick, raiting}) => {
@@ -13,7 +11,7 @@ const CardResume = ({title, city, img, price, agency, onCardResumeClick, raiting
       <span className="card-resume-city">{city}</span>
       <ImageVysor width='100%' src={img} alt="Demo" description="$24">
         <span>${price}</span>
-        <Raiting raiting={raiting} size="s"/>
+        <Raiting raiting={raiting} size="1x"/>
       </ImageVysor>
       <span className="card-resume-realstate">Inmobiliaria: {agency.name}</span>
     </div>
