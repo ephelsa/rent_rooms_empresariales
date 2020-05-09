@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import CardResumeList from './containers/CardResumeList/CardResumeList';
 
 ReactDOM.render(<React.StrictMode><App /></React.StrictMode>, document.getElementById('root'));
 //ReactDOM.render(<CardResumeList></CardResumeList>, document.getElementById('root'));

@@ -4,7 +4,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 6em 1fr 4em;
   margin: auto;
-  /* width: 80%; */
+  width: 80%;
   background-color: var(--color-white);
   border-radius: 10px;
   padding: 26px 16px;
@@ -31,19 +31,25 @@
 }
 
 .card-details-image{
+  padding: 10px;
   grid-column: 1;
   grid-row: 2;
 }
 
+.card-details-right{
+  padding: 20px;
+  text-align: center;
+}
+
 .card-details-city {
   font-family: var(--font-secondary);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   margin-bottom: 4px;
   color: var(--color-black);
 }
 
-.card-details-realstate {
+/* .card-details-realstate {
   font-family: var(--font-secondary);
   font-size: 14px;
   color: var(--color-black);
@@ -52,4 +58,4 @@
   position: absolute;
   margin-right: 16px;
   margin-left: 16px;
-}
+} */

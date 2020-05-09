@@ -8,11 +8,12 @@ const CardDetails = ({ img, city, price, totalPrice, realState, realStateLogo, n
     <div className="card-details-container">
       <h1 className="card-details-title">{name}</h1>
       <img className="card-details-image" src={img} alt="img" />
-      <div className="right">
-        <span className="card-details-city">{city}</span>
-        <span className="card-details-realstate">Inmobiliaria: {realState}</span>
+      <div className="card-details-right">
+        
+        <span className="card-details-city">Ciudad: {city}</span>
+        <b className="card-details-realstate">Inmobiliaria: {realState}</b>
       </div>
-      <p>{services}</p>
+      {services.map((service, i) => { return <p key={i}>{service}</p> })}
     </div>
   );
 };
