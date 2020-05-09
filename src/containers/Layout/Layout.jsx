@@ -10,7 +10,7 @@ class Layout extends Component {
     return (
       <Aux>
         <Navbar />
-        {this.props.children}
+        <div className="layout-content">{this.props.children}</div>
       </Aux>
     );
   }
