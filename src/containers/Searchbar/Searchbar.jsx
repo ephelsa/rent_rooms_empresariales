@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import { registerLocale } from "react-datepicker";
-import Dropdown from '../../containers/Dropdown/Dropdown';
+import Dropdown from '../Dropdown/Dropdown';
 import './Searchbar.css';
 import es from 'date-fns/locale/es';
 import DatePicker from "react-datepicker";
 import moment from 'moment'
-
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
-
+import { useHistory } from 'react-router-dom'
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 
@@ -24,7 +23,8 @@ const options = [
   { id: 'IBE', value: 'Ibagué' },
 ];
 
-function Searchbar() {
+const Searchbar = (props) => {
+  const history = useHistory();
 
   const busquedadetallesHabitaciones = () => {
     const urlBackendLambda = "https://34ld77s309.execute-api.us-east-1.amazonaws.com/prod/rooms/";
@@ -91,10 +91,6 @@ function Searchbar() {
       })
   }
 
-  // const destinationCallback = (destination) => {
-  //   console.log('Destination selected ->', destination);
-  // }
-
   registerLocale('es', es)
   const [destination, setDestination] = useState('');
 
@@ -116,7 +112,8 @@ function Searchbar() {
   function datasearch() {
     const Datastar = moment(startDate).format('YYYY-MM-DD')
     const Dataend = moment(endDate).format('YYYY-MM-DD')
-    console.log(destination, Datastar, Dataend)
+    let query = `?location=${destination.id}&checkin=${Datastar}&checkout=${Dataend}`
+    history.push(`search${query}`)
   }
 
   return (
@@ -128,34 +125,33 @@ function Searchbar() {
           onOptionSelected={destinationCallback}
           borderType="left-border" />
       </div>
-
-        <DatePicker
-          className="red"
-          onChange={date => setStartDate(date)}
-          locale="es"
-          title="fechas"
-          selected={startDate}
-          selectsStart
-          startDate={startDate}
-          minDate={new Date()}
-          endDate={endDate}
-          key="1"
-          onBlur={handleOnBlur}
-          placeholderText="Fecha Entrada "
-        />
-        <DatePicker
-          className="red"
-          locale="es"
-          selected={endDate}
-          onChange={date => setEndDate(date)}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-          key="2"
-          onBlur={handleOnBlur1}
-          placeholderText="Fecha Salida "
-        />
+      <DatePicker
+        className="date-container-left"
+        onChange={date => setStartDate(date)}
+        locale="es"
+        title="fechas"
+        selected={startDate}
+        selectsStart
+        startDate={startDate}
+        minDate={new Date()}
+        endDate={endDate}
+        key="1"
+        onBlur={handleOnBlur}
+        placeholderText="Fecha Entrada "
+      />
+      <DatePicker
+        className="date-container-right"
+        locale="es"
+        selected={endDate}
+        onChange={date => setEndDate(date)}
+        selectsEnd
+        startDate={startDate}
+        endDate={endDate}
+        minDate={startDate}
+        key="2"
+        onBlur={handleOnBlur1}
+        placeholderText="Fecha Salida "
+      />
       <div className="date-container-button">
         <button className="searchbar-button" onClick={datasearch}>Buscar</button>
       </div>

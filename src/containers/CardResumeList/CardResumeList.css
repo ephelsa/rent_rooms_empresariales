@@ -1,3 +1,4 @@
 .card-resume-list-container {
-  display: inline-block
+  display: inline-block;
+  margin-top: 10px;
 }
