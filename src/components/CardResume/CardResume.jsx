@@ -5,9 +5,9 @@ import ImageVysor from '../ImageVysor/ImageVysor';
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const CardResume = ({title, city, img, price, realState}) => {
+const CardResume = ({title, city, img, price, agency, onCardResumeClick}) => {
   return (
-    <div className="card-resume-container">
+    <div className="card-resume-container" onClick={() => onCardResumeClick(agency)}>
       <span className="card-resume-title">{title}</span>
       <span className="card-resume-city">{city}</span>
       <ImageVysor width='100%' src={img} alt="Demo" description="$24">
@@ -17,7 +17,7 @@ const CardResume = ({title, city, img, price, realState}) => {
         <FontAwesomeIcon icon={faStar} color="var(--color-accent)" />
         <FontAwesomeIcon icon={faStarHalfAlt} color="var(--color-accent)" />
       </ImageVysor>
-      <span className="card-resume-realstate">Inmobiliaria: {realState}</span>
+      <span className="card-resume-realstate">Inmobiliaria: {agency.name}</span>
     </div>
   );
 };
@@ -27,7 +27,8 @@ CardResume.propTypes = {
   city: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  realState: PropTypes.string.isRequired,
+  agency: PropTypes.shape({ id: PropTypes.string, name: PropTypes.string }),
+  onCardResumeClick: PropTypes.func.isRequired,
 };
 
 export default CardResume;

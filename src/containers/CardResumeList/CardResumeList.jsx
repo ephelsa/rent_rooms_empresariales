@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 import CardResume from '../../components/CardResume/CardResume';
 
@@ -12,7 +14,15 @@ class CardResumeList extends Component {
     axios.get(urlBackendLambda+query) 
     .then(responseLambda => {
       responseLambda.data.map(elemento => {
-        this.setState({ cards: [...this.state.cards, { id: elemento.id, title: elemento.property_name, city: elemento.location.name, img: elemento.thumbnail, price: elemento.price, realState: elemento.agency.name }] });
+        this.setState({ cards: [...this.state.cards, {
+          id: elemento.id, 
+          title: elemento.property_name, 
+          city: elemento.location.name, 
+          img: elemento.thumbnail, 
+          price: elemento.price,
+          agency: elemento.agency,
+          key: elemento.id + elemento.agency.id
+        }] });
       })
        })
      .catch(e => {
@@ -21,7 +31,15 @@ class CardResumeList extends Component {
     axios.get(urlBackendNode + query)
       .then(responseNodeJs => {
         responseNodeJs.data.map(elemento => {
-          this.setState({ cards: [...this.state.cards, { id: elemento.id, title: elemento.property_name, city: elemento.location.name, img: elemento.thumbnail, price: elemento.price, realState: elemento.agency.name }] });
+          this.setState({ cards: [...this.state.cards, { 
+            id: elemento.id, 
+            title: elemento.property_name, 
+            city: elemento.location.name, 
+            img: elemento.thumbnail, 
+            price: elemento.price,
+            agency: elemento.agency,
+            key: elemento.id + elemento.agency.id
+          }] });
         })
 
       })
@@ -32,7 +50,15 @@ class CardResumeList extends Component {
       .then(responsePython => {
         var habitacionesDesdePython = responsePython.data; //Aquí estan las habitaciones desde Python
         habitacionesDesdePython.map(elemento => {
-          this.setState({ cards: [...this.state.cards, { id: elemento.id, title: elemento.property_name, city: elemento.location.name, img: elemento.thumbnail, price: elemento.price, realState: elemento.agency.name }] });
+          this.setState({ cards: [...this.state.cards, { 
+            id: elemento.id, 
+            title: elemento.property_name, 
+            city: elemento.location.name, 
+            img: elemento.thumbnail, 
+            price: elemento.price,
+            agency: elemento.agency,
+            key: elemento.id + elemento.agency.id
+          }] });
         })
       })
       .catch(e => {console.log(e);})
@@ -52,17 +78,22 @@ class CardResumeList extends Component {
     this.busquedaGeneral(query);
   }
 
+  handleCardDetails(idRealState) {
+    console.log("[CardResumeList] ID real state ->", idRealState)
+  }
 
   render() {
-    const cards = this.state.cards.map(card => (
+    const mesaje = <h1>No se encontraron resultados</h1>
+    const cards = this.state.cards.map((card, index) => (
       <CardResume title={card.title}
         city={card.city}
         img={card.img}
         price={card.price}
-        realState={card.realState}
-        key={card.id} />
+        agency={card.agency}
+        onCardResumeClick={this.handleCardDetails}
+        key={`${card.key}-${index}`} />
     ));
-    const mesaje = <h1>No se encontraron resultados</h1>
+
     return (<div className="card-resume-list-container">{cards.length?cards:mesaje}</div>);
   }
 }
