@@ -3,18 +3,18 @@ import axios from 'axios';
 
 import CardDetails from '../../components/CardDetails/CardDetails';
 import './CardDetailsRequest.css'
+import { string } from 'prop-types';
 
 class CardDetailsRequest extends Component {
 
   state = {
-    details: {
+    details: { 
       services: []
     }
   }
 
   componentDidMount() {
     const { agencyName, roomId } = this.props.match.params;
-
     this.getDetails(agencyName, roomId)
   }
 
@@ -25,36 +25,39 @@ class CardDetailsRequest extends Component {
 
     switch(agencyName) {
       case 'S_TEAM': return urlBackendPython;
-      case 'Arrendamientos%20njs': return urlBackendNode;
-      case 'Lambda%20Team': return urlBackendLambda;
+      case 'Arrendamientos njs': return urlBackendNode;
+      case 'Lambda Team': return urlBackendLambda;
       default: return '----';
     }
   }
 
   getDetails(agencyName, roomId) {
+    
     const baseUrl = this.getBaseUrl(agencyName)
+    console.log(baseUrl+roomId);
     axios.get(baseUrl + roomId) 
     .then(res => {
-      let details = {};
-      res.data.map((item) => {
+        console.log(res.data);
+      let details = {};    
         details = {
-          id: item.id,
-          img: item.images[0].url,
-          city: item.location.name,
-          price: item.price,
-          totalPrice: 3000,
-          realState: item.agency.name,
-          realStateLogo: item.agency.logo_url,
-          name: item.property_name,
-          rating: item.rating,
-          services: item.services
+          id: res.data.id,
+          img: res.data.images[0].url,
+          city: res.data.location.name,
+          price: res.data.price,
+          totalPrice: res.data.price,
+          realState: res.data.agency.name,
+          realStateLogo: res.data.agency.logo_url,
+          name: res.data.property_name,
+          rating: res.data.rating,
+          services: res.data.services
         };
-      });
+      
 
       this.setState({ details })
-      console.log('[CardDetailsRequest] details ->', res.data);
+      
+     // console.log('[CardDetailsRequest] details ->', res.data);
     }).catch(e => {
-      console.log(e);
+      console.log("Falló la petición: "+e);
     });
   }
 
@@ -62,6 +65,7 @@ class CardDetailsRequest extends Component {
     return (
       <div className="card-details-request-container">
         <CardDetails
+          id={this.state.details.id}
           key={this.state.details.id}
           img={this.state.details.img}
           city={this.state.details.city}
