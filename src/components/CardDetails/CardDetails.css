@@ -38,9 +38,10 @@
 }
 
 .card-details-image {
-  padding: 13px;
+  padding-right: 1%;
   grid-column: 1;
   grid-row: 2;
+  
 }
 
 .card-details-right {
@@ -54,6 +55,7 @@
 }
 
 .card-details-description{
+  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -72,9 +74,34 @@
 .card-details-services {
   grid-column: 1;
   grid-row: 3;
-  padding: 15px;
+  padding: 5px;
 }
 
 .card-details-service {
   padding: 20px;
+}
+.mail-button {
+  background-color: var(--color-primary);
+  color: var(--color-font-inverse);
+  cursor: pointer;
+  height: 40px;
+  display: inline-block;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-top-right-radius: var(--radius-border);
+  border-bottom-right-radius: var(--radius-border);
+  font-size: var(--font-size);
+}
+
+input {
+  width: 100%;
+  border: 2px solid blue;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.Raiting{
+
 }
