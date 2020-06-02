@@ -101,6 +101,7 @@ const Searchbar = (props) => {
   const [startDate, setStartDate] = useState(null);
   const handleOnBlur = ({ target: { value } }) => {
     const Checkin = new Date(value);
+   
     console.log("Checkin=", Checkin.getFullYear(Checkin, "yyyy"), "-", Checkin.getMonth(Checkin, "MM"), "-", Checkin.getDate(Checkin, "dd"));
   };
   const [endDate, setEndDate] = useState(null);
@@ -114,7 +115,22 @@ const Searchbar = (props) => {
     const Dataend = moment(endDate).format('YYYY-MM-DD')
     let query = `?location=${destination.id}&checkin=${Datastar}&checkout=${Dataend}`
     history.push(`search${query}`)
+  
+    
+
+    
   }
+
+  //var diffe =  Math.floor((( startDate - endDate ) / 86400000)*-1);
+  //console.log ("diferencia=",diffe);
+  let momentStart = moment(startDate);
+  let momentEnd = moment(endDate);
+  
+   var diffe =  momentEnd.diff(momentStart, 'days');
+   //var diffe = Datastar.diff(Dataend, 'days', false);
+   console.log ("diferencia=",diffe);
+
+   
 
   return (
     <div className="searchbar">

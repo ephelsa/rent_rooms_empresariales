@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import CardResume from '../../components/CardResume/CardResume';
+import queryString from 'query-string'
 
 import './CardResumeList.css'
 
@@ -74,19 +75,21 @@ class CardResumeList extends Component {
     this.busquedaGeneral = this.busquedaGeneral.bind(this);
   }
 
+  
+
   componentDidMount() {
     const query = this.props.location.search;
-    this.setState({query: query})
+    const queryValues = queryString.parse(query)
+
+    this.setState({query: query, checkin:queryValues.checkin,checkout:queryValues.checkout,location:queryValues.location})
     this.busquedaGeneral(query);
   }
 
   handleCardDetails(room, agency) {
     console.log("[CardResumeList] Card callback ->", room, agency)
-    const codCity = this.state.query.split('location=')[1].split('&')[0]
-
-    this.props.history.push({ 
-      pathname: `details/${codCity}/${agency.name}/${room.id}/${room.title}`
-    })
+    const {checkin,checkout,location} = this.state;
+    this.props.history.push(`details/${location}/${agency.name}/${room.id}/${room.title}?checkin=${checkin}&checkout=${checkout}`
+    )
   }
 
   render() {

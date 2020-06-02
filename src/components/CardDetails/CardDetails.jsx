@@ -5,7 +5,8 @@ import ImageVysor from '../ImageVysor/ImageVysor';
 import axios from 'axios';
 import './CardDetails.css';
 
-const CardDetails = ({ id, img, city, price, totalPrice, realState, realStateLogo, name, rating, services }) => {
+const CardDetails = ({ checkin,checkout,id, img, city, price, totalPrice, realState, realStateLogo, name, rating, services }) => {
+
   
   function getBaseUrl(agencyName) {
     const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/booking";
@@ -25,8 +26,8 @@ function reservar(){
   const baseUrl = getBaseUrl(realState)
   axios.post(baseUrl,{
 
-checkin: "2020-06-06", //Esto esta en quemado, cambiarlo
-checkout: "2020-06-10", //Esto esta en quemado, cambiarlo
+checkin,
+checkout,
 email: email,
 name: email,
 id_room: id
@@ -45,18 +46,19 @@ id_room: id
       </div>
       <div className="card-details-image">
         <ImageVysor width="100%" src={img} alt="demo" description>
-          <Raiting raiting={rating} size="3x" />
+          <Raiting  raiting={rating} size="2x"  />
         </ImageVysor>
       </div>
       <div className="card-details-right">
         <h2 className="card-details-description">Descripción</h2>
         <p>Esta habitación no posee descripción</p>
-        <h1>Precio: {price}$</h1>
+
+        <h1>Precio: {totalPrice}</h1>
         <br/>
         <div id="reservar">
-        <input id="email"/>Ingrese su email para reservar
+        <input className="input" id="email"/>Ingrese su email para reservar
         <br/>
-        <button onClick={reservar}>Reservar</button></div>
+        <button className="mail-button" onClick={reservar}>Reservar</button></div>
       </div>
       <div className="card-details-services">
         <b>Servicios:</b>

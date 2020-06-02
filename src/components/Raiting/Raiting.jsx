@@ -15,7 +15,7 @@ const Raiting = ({raiting, size}) => {
     totalStars.push(<FontAwesomeIcon icon={faStar} color="var(--color-tertiary)" size={size}/>) 
   }
   if (stars[1] > 0) {
-    totalStars.push(<FontAwesomeIcon icon={faStarHalfAlt} color="var(--color-tertiary)" size={size} />)
+    totalStars.push(<FontAwesomeIcon icon={faStarHalfAlt}  color="var(--color-tertiary)" size={size} />)
   }
   
   return (

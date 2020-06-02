@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import queryString from 'query-string'
+import moment from 'moment'
 import CardDetails from '../../components/CardDetails/CardDetails';
 import './CardDetailsRequest.css'
 import { string } from 'prop-types';
+
 
 class CardDetailsRequest extends Component {
 
@@ -38,13 +40,29 @@ class CardDetailsRequest extends Component {
     axios.get(baseUrl + roomId) 
     .then(res => {
         console.log(res.data);
+        const formatterPeso = new Intl.NumberFormat('es-CO', {
+          style: 'currency',
+          currency: 'COP',
+          minimumFractionDigits: 0
+        })
+      const {checkin,checkout} = queryString.parse(this.props.location.search);
+      const startDate = new Date(checkin)
+      const endDate = new Date(checkout)
+      let momentStart = moment(startDate);
+      let momentEnd = moment(endDate);
+      const diffe =  momentEnd.diff(momentStart, 'days');
+      console.log("diferencia",diffe)
+      console.log("checkin", checkin)
+      console.log("checkout", checkout)
       let details = {};    
         details = {
+          checkin,
+          checkout,
           id: res.data.id,
           img: res.data.images[0].url,
           city: res.data.location.name,
           price: res.data.price,
-          totalPrice: res.data.price,
+          totalPrice: formatterPeso.format(res.data.price*diffe),
           realState: res.data.agency.name,
           realStateLogo: res.data.agency.logo_url,
           name: res.data.property_name,
@@ -65,6 +83,8 @@ class CardDetailsRequest extends Component {
     return (
       <div className="card-details-request-container">
         <CardDetails
+          checkin = {this.state.details.checkin}
+          checkout = {this.state.details.checkout
           id={this.state.details.id}
           key={this.state.details.id}
           img={this.state.details.img}
