@@ -4,6 +4,7 @@ import queryString from 'query-string'
 import moment from 'moment'
 import CardDetails from '../../components/CardDetails/CardDetails';
 import './CardDetailsRequest.css'
+import { string } from 'prop-types';
 
 
 class CardDetailsRequest extends Component {
@@ -83,7 +84,7 @@ class CardDetailsRequest extends Component {
       <div className="card-details-request-container">
         <CardDetails
           checkin = {this.state.details.checkin}
-          checkout = {this.state.details.checkout}
+          checkout = {this.state.details.checkout
           id={this.state.details.id}
           key={this.state.details.id}
           img={this.state.details.img}

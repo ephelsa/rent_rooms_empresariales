@@ -5,8 +5,8 @@ import ImageVysor from '../ImageVysor/ImageVysor';
 import axios from 'axios';
 import './CardDetails.css';
 
-
 const CardDetails = ({ checkin,checkout,id, img, city, price, totalPrice, realState, realStateLogo, name, rating, services }) => {
+
   
   function getBaseUrl(agencyName) {
     const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/booking";
@@ -52,6 +52,7 @@ id_room: id
       <div className="card-details-right">
         <h2 className="card-details-description">Descripción</h2>
         <p>Esta habitación no posee descripción</p>
+
         <h1>Precio: {totalPrice}</h1>
         <br/>
         <div id="reservar">
