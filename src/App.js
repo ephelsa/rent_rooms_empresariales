@@ -11,19 +11,18 @@ function App() {
   return (
     <Layout>
       <Switch>
-        <Route exact path="/home" component={Main}  />
+        <Route exact path="/home" component={Main} />
         <Route exact path="/search" component={Cards} />
         <Route path="/details/:codCity/:agencyName/:roomId/:roomName" component={Details} />
         <Route path="/404" component={Page404} />
-
         <Route path="/">
           <Redirect to="/home" />
         </Route>
         <Route>
           <Redirect to="/404" />
         </Route>
-    </Switch>
-  </Layout>
+      </Switch>
+    </Layout>
   );
 }
 
