@@ -11,6 +11,6 @@
     margin: 0px;
     text-align: center;
     font-weight: bolder;
-    color: #006BB1;
+    color: var(--color-primary);
     font-size: 50px;
 }

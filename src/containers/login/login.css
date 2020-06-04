@@ -9,8 +9,13 @@
 }
 
 .text {
-  padding-top: 200px;
-  color: #006BB1
+  padding-top: 100px;
+  margin: 0px;
+  margin-bottom: 100px;
+  text-align: center;
+  font-weight: bolder;
+  color: var(--color-primary);
+  font-size: 50px;
 }
 
 .loginBtn {

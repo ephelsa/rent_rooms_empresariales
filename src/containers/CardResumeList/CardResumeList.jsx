@@ -26,6 +26,7 @@ class CardResumeList extends Component {
               key: elemento.id + elemento.agency.id
             }]
           });
+          return null;
         })
       })
       .catch(e => {
@@ -46,6 +47,7 @@ class CardResumeList extends Component {
               key: elemento.id + elemento.agency.id
             }]
           });
+          return null;
         })
 
       })
@@ -68,6 +70,7 @@ class CardResumeList extends Component {
               key: elemento.id + elemento.agency.id
             }]
           });
+          return null;
         })
       })
       .catch(e => { console.log(e); })
@@ -90,7 +93,6 @@ class CardResumeList extends Component {
   }
 
   handleCardDetails(room, agency) {
-    console.log("[CardResumeList] Card callback ->", room, agency)
     const { checkin, checkout, location } = this.state;
     this.props.history.push(`details/${location}/${agency.name}/${room.id}/${room.title}?checkin=${checkin}&checkout=${checkout}`)
   }
