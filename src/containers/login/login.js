@@ -4,7 +4,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../../firebaseConfig';
 import './login.css';
-
+import { BrowserRouter,Route, Redirect, Switch } from 'react-router-dom'
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 class Login extends Component {
@@ -16,18 +16,24 @@ class Login extends Component {
         signInWithFacebook,
       } = this.props;
       
+    
       return (
         <div>
             {
               user
-                ? <p><h1>Bienvenido, {user.displayName}</h1></p>
-                : <p><h1>Escoja un metodo para iniciar sesión.</h1></p>
+                ?   //<p>logueado</p>
+                <Redirect to={{
+                  pathname: '/home',
+                  firebase: firebase
+              }}/>
+                : <div class="text"><p><h1>Escoja un metodo para iniciar sesión.</h1></p></div>
             }
   
             {
               user
-                ? <button onClick={signOut}>Sign out</button>
-                : <div><button onClick={signInWithFacebook}>Sign in with Google</button> <button onClick={signInWithFacebook}>Sign in with Facebook</button></div>
+                ?<div> <button onClick={signOut}/></div>  
+                          
+                : <div><button onClick={signInWithGoogle}>Sign in with Google</button> <button onClick={signInWithFacebook}>Sign in with Facebook</button></div>
             }
         </div>
       );
