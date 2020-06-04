@@ -21,7 +21,7 @@ class Login extends Component {
         <div>
             {
               user
-                ?   //<p>logueado</p>
+                ?   
                 <Redirect to={{
                   pathname: '/home',
                   firebase: firebase
@@ -33,7 +33,7 @@ class Login extends Component {
               user
                 ?<div> <button onClick={signOut}/></div>  
                           
-                : <div><button onClick={signInWithGoogle}>Sign in with Google</button> <button onClick={signInWithFacebook}>Sign in with Facebook</button></div>
+                   : <div><button  class="loginBtn loginBtn--google" onClick={signInWithGoogle}>Sign in with Google</button> <button class="loginBtn loginBtn--facebook" onClick={signInWithFacebook}>Sign in with Facebook</button></div>
             }
         </div>
       );

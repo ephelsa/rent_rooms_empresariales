@@ -14,11 +14,14 @@ function App() {
  
       
       <Route exact path="/login" component={Login}  />  
-      <Layout>
+      
         <Route exact path="/home" component={Main}  />
+        <Layout>
         <Route exact path="/search" component={Cards} />
         <Route path="/details/:codCity/:agencyName/:roomId/:roomName" component={Details} /></Layout>
+        
         <Route path="/404" component={Page404} />
+       
 
         <Route path="/">
           <Redirect to="/login" />

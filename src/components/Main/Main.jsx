@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from '../../containers/Layout/Layout';
 
 import Searchbar from '../../containers/Searchbar/Searchbar';
 
@@ -13,10 +14,11 @@ function logOut(firebase){
 }
 
 const Main = (props) => (
-    <div className='main'>
-        <h1>Hola {logOut(props.location.firebase)}  {console.log(props.location.firebase)} encuentra tu nuevo hogar</h1>
+    <Layout firebase={props.location.firebase}>    <div className='main'>
+        <h1>Hola encuentra tu nuevo hogar</h1>
         <Searchbar/>
-    </div>
+    </div></Layout>
+
 )
 
 export default Main;
