@@ -3,9 +3,22 @@ import { Link } from 'react-router-dom';
 
 import './Navbar.css'
 import Logo from '../../assets/logo.png'
+function logout(firebase){
+    firebase.auth().signOut().then(function() {
+        alert("se ha deslogueado exitosamente");
+        window.open("http://localhost:3000/login","_self")
+      }).catch(function(error) {
+        // An error happened.
+      });
+}
 
-const Navbar = () => (
+function login(){
+    window.open("http://localhost:3000/login","_self")
+}
+
+const Navbar = (props) => (
     <div className='navbar'>
+        {console.log(props.firebase)}
         <div className="right">
             <a href="#menu">Menú</a>
             <a href="#idiom">Español</a>
@@ -13,8 +26,12 @@ const Navbar = () => (
         <Link to="/home"><img src={Logo} alt="Logo" /></Link>
         <div className="left">
             <a href="#help">Ayuda</a>
-            <a href="#login">Inicia sesión</a>
-            <a className="button" href="#register">Regístrate</a>
+            {
+                props.firebase
+                ? <a  onClick={() => logout(props.firebase)}>Cerrar sesión</a>
+                :<a onClick={login}>Inicia sesión</a>
+                }
+       
         </div>
     </div>
 )
