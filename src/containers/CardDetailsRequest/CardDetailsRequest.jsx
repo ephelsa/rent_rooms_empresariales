@@ -4,8 +4,6 @@ import queryString from 'query-string'
 import moment from 'moment'
 import CardDetails from '../../components/CardDetails/CardDetails';
 import './CardDetailsRequest.css'
-import { string } from 'prop-types';
-
 
 class CardDetailsRequest extends Component {
 
@@ -35,10 +33,8 @@ class CardDetailsRequest extends Component {
 
   getDetails(agencyName, roomId) {
     const baseUrl = this.getBaseUrl(agencyName)
-    console.log(baseUrl + roomId);
     axios.get(baseUrl + roomId)
       .then(res => {
-        console.log(res.data);
         const formatterPeso = new Intl.NumberFormat('es-CO', {
           style: 'currency',
           currency: 'COP',
@@ -50,9 +46,6 @@ class CardDetailsRequest extends Component {
         let momentStart = moment(startDate);
         let momentEnd = moment(endDate);
         const diffe = momentEnd.diff(momentStart, 'days');
-        console.log("diferencia", diffe)
-        console.log("checkin", checkin)
-        console.log("checkout", checkout)
         let details = {};
         details = {
           checkin,
@@ -81,7 +74,7 @@ class CardDetailsRequest extends Component {
           checkin={this.state.details.checkin}
           checkout={this.state.details.checkout}
           id={this.state.details.id}
-          key={this.state.details.id}
+          key={`${this.state.details.id}+${this.state.details.name}`}
           img={this.state.details.img}
           city={this.state.details.city}
           price={this.state.details.price}

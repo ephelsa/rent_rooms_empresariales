@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import './Navbar.css'
 import Logo from '../../assets/logo.png'
+
 function logout(firebase){
     firebase.auth().signOut().then(function() {
         alert("se ha deslogueado exitosamente");
@@ -18,18 +18,17 @@ function login(){
 
 const Navbar = (props) => (
     <div className='navbar'>
-        {console.log(props.firebase)}
         <div className="right">
-            <a href="#menu">Menú</a>
+            <Link to="/home">Menú</Link>
             <a href="#idiom">Español</a>
         </div>
         <Link to="/home"><img src={Logo} alt="Logo" /></Link>
         <div className="left">
-            <a href="#help">Ayuda</a>
+            <Link to="/reservas">Mis reservas</Link>
             {
                 props.firebase
-                ? <a  onClick={() => logout(props.firebase)}>Cerrar sesión</a>
-                :<a onClick={login}>Inicia sesión</a>
+                ? <Link to="#" onClick={() => logout(props.firebase)}>Cerrar sesión</Link>
+                :<Link to="#" onClick={login}>Inicia sesión</Link>
                 }
        
         </div>
