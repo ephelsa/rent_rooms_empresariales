@@ -10,7 +10,7 @@ import { string } from 'prop-types';
 class CardDetailsRequest extends Component {
 
   state = {
-    details: { 
+    details: {
       services: []
     }
   }
@@ -25,8 +25,8 @@ class CardDetailsRequest extends Component {
     const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/";
     const urlBackendLambda = "https://0kaup1m6dg.execute-api.us-east-1.amazonaws.com/prod/rooms/";
 
-    switch(agencyName) {
-      case 'S_TEAM': return urlBackendPython;
+    switch (agencyName) {
+      case 'Python': return urlBackendPython;
       case 'Arrendamientos njs': return urlBackendNode;
       case 'Lambda Team': return urlBackendLambda;
       default: return '----';
@@ -34,27 +34,26 @@ class CardDetailsRequest extends Component {
   }
 
   getDetails(agencyName, roomId) {
-    
     const baseUrl = this.getBaseUrl(agencyName)
-    console.log(baseUrl+roomId);
-    axios.get(baseUrl + roomId) 
-    .then(res => {
+    console.log(baseUrl + roomId);
+    axios.get(baseUrl + roomId)
+      .then(res => {
         console.log(res.data);
         const formatterPeso = new Intl.NumberFormat('es-CO', {
           style: 'currency',
           currency: 'COP',
           minimumFractionDigits: 0
         })
-      const {checkin,checkout} = queryString.parse(this.props.location.search);
-      const startDate = new Date(checkin)
-      const endDate = new Date(checkout)
-      let momentStart = moment(startDate);
-      let momentEnd = moment(endDate);
-      const diffe =  momentEnd.diff(momentStart, 'days');
-      console.log("diferencia",diffe)
-      console.log("checkin", checkin)
-      console.log("checkout", checkout)
-      let details = {};    
+        const { checkin, checkout } = queryString.parse(this.props.location.search);
+        const startDate = new Date(checkin)
+        const endDate = new Date(checkout)
+        let momentStart = moment(startDate);
+        let momentEnd = moment(endDate);
+        const diffe = momentEnd.diff(momentStart, 'days');
+        console.log("diferencia", diffe)
+        console.log("checkin", checkin)
+        console.log("checkout", checkout)
+        let details = {};
         details = {
           checkin,
           checkout,
@@ -62,29 +61,25 @@ class CardDetailsRequest extends Component {
           img: res.data.images[0].url,
           city: res.data.location.name,
           price: res.data.price,
-          totalPrice: formatterPeso.format(res.data.price*diffe),
+          totalPrice: formatterPeso.format(res.data.price * diffe),
           realState: res.data.agency.name,
           realStateLogo: res.data.agency.logo_url,
           name: res.data.property_name,
           rating: res.data.rating,
           services: res.data.services
         };
-      
-
-      this.setState({ details })
-      
-     // console.log('[CardDetailsRequest] details ->', res.data);
-    }).catch(e => {
-      console.log("Falló la petición: "+e);
-    });
+        this.setState({ details })
+      }).catch(e => {
+        console.log("Falló la petición: " + e);
+      });
   }
 
   render() {
     return (
       <div className="card-details-request-container">
         <CardDetails
-          checkin = {this.state.details.checkin}
-          checkout = {this.state.details.checkout
+          checkin={this.state.details.checkin}
+          checkout={this.state.details.checkout}
           id={this.state.details.id}
           key={this.state.details.id}
           img={this.state.details.img}

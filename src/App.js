@@ -9,6 +9,7 @@ import Details from './containers/CardDetailsRequest/CardDetailsRequest'
 import Login from './containers/login/login'
 
 function App() {
+
   return ( 
     <Switch>  
  
@@ -21,7 +22,6 @@ function App() {
         <Route path="/details/:codCity/:agencyName/:roomId/:roomName" component={Details} /></Layout>
         
         <Route path="/404" component={Page404} />
-       
 
         <Route path="/">
           <Redirect to="/login" />
@@ -29,6 +29,7 @@ function App() {
         <Route>
           <Redirect to="/404" />
         </Route>
+
    
     
     </Switch>
