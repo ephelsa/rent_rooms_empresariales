@@ -6,10 +6,29 @@ import firebaseConfig from '../../firebaseConfig';
 import 'firebase/auth';
 import './Login.css';
 import Aux from '../../hoc/Auxiliar'
+import axios from 'axios';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-
 class Login extends Component {
+
+  state = {
+    token: ''
+  }
+
+  tokenHandler = (user) => {
+    const googleAPI = "https://securetoken.googleapis.com/v1/token?key=AIzaSyARTPou47LqLMxfpS5jqjUXHTxps-SqjM8&grant_type=refresh_token&refresh_token="
+    axios.post(googleAPI + user.refreshToken)
+      .then(res => {
+        this.setState({
+          token: res.data.access_token
+        })
+        return null;
+      })
+      .catch(e => {
+        console.log(e);
+      })
+  }
+
   render() {
     const { user, signOut, signInWithGoogle, signInWithFacebook } = this.props;
 
@@ -18,7 +37,7 @@ class Login extends Component {
         {
           user
             ? <Redirect to={{ pathname: '/home', firebase: firebase }} />
-            // ? console.log(JSON.stringify(user, null, 2))
+            // ? <button onClick={() => this.tokenHandler(user)}>Prueba</button>
             : <h1 className="text">Escoja un metodo para iniciar sesión.</h1>
         }
 
@@ -39,7 +58,4 @@ const providers = {
   facebookProvider: new firebase.auth.FacebookAuthProvider(),
 };
 
-export default withFirebaseAuth({
-  providers,
-  firebaseAppAuth,
-})(Login);
+export default withFirebaseAuth({ providers, firebaseAppAuth })(Login);

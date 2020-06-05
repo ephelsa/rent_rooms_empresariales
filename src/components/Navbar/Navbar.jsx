@@ -12,10 +12,6 @@ function logout(firebase){
       });
 }
 
-function login(){
-    window.open("http://localhost:3000/login","_self")
-}
-
 const Navbar = (props) => (
     <div className='navbar'>
         <div className="right">
@@ -28,7 +24,7 @@ const Navbar = (props) => (
             {
                 props.firebase
                 ? <Link to="#" onClick={() => logout(props.firebase)}>Cerrar sesión</Link>
-                :<Link to="#" onClick={login}>Inicia sesión</Link>
+                :<Link to="/login">Inicia sesión</Link>
                 }
        
         </div>

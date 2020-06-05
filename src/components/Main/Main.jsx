@@ -3,14 +3,6 @@ import Layout from '../../containers/Layout/Layout';
 import Searchbar from '../../containers/Searchbar/Searchbar';
 import './Main.css'
 
-// function logOut(firebase) {
-//   firebase.auth().signOut().then(function () {
-//     // Sign-out successful.
-//   }).catch(function (error) {
-//     // An error happened.
-//   });
-// }
-
 const Main = (props) => (
   <Layout firebase={props.location.firebase}>
     <div className='main'>
@@ -18,7 +10,6 @@ const Main = (props) => (
       <Searchbar />
     </div>
   </Layout>
-
 )
 
 export default Main;
