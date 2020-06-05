@@ -1,5 +1,5 @@
 .card-resume-container {
-  width: 17%;
+  width: 20%;
   display: inline-block;
   background-color: var(--color-white);
   border-radius: var(--radius-card-resume);
@@ -9,7 +9,6 @@
   padding: 26px 15px;
   padding-top: 15px;
   margin: 10px 5px;
-  max-width: 250px;
   position: relative;
 }
 

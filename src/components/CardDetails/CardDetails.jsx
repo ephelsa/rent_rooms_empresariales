@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import Raiting from '../Raiting/Raiting';
 import ImageVysor from '../ImageVysor/ImageVysor';
 import axios from 'axios';
@@ -7,11 +6,10 @@ import './CardDetails.css';
 
 const CardDetails = ({ checkin, checkout, id, img, city, price, totalPrice, realState, realStateLogo, name, rating, services }) => {
 
-
   function getBaseUrl(agencyName) {
     const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/booking";
     const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/booking";
-    const urlBackendLambda = "https://34ld77s309.execute-api.us-east-1.amazonaws.com/prod/booking";
+    const urlBackendLambda = "https://0kaup1m6dg.execute-api.us-east-1.amazonaws.com/dev/booking";
     const urlBackendScala = "https://rent-rooms.herokuapp.com/booking";
 
     switch (agencyName) {
@@ -26,7 +24,7 @@ const CardDetails = ({ checkin, checkout, id, img, city, price, totalPrice, real
   function reservar() {
     const email = document.getElementById('email').value;
     const baseUrl = getBaseUrl(realState)
-    const token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0Mzg3ZGUyMDUxMWNkNDgzYTIwZDIyOGQ5OTI4ZTU0YjNlZTBlMDgiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiQWxlamFuZHJvIENhc3Rhw7FvIiwicGljdHVyZSI6Imh0dHBzOi8vbGg1Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8tdk1ZLXVJeVN1alEvQUFBQUFBQUFBQUkvQUFBQUFBQUFLWjQvQU1adXVja2J4cHhRT2R5S2ZxRHhncmVoV054RUNEaXZ5QS9waG90by5qcGciLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVudHJvb21zLTIwMTkyIiwiYXVkIjoicmVudHJvb21zLTIwMTkyIiwiYXV0aF90aW1lIjoxNTkxMzM1OTE3LCJ1c2VyX2lkIjoickZOUGdEbDlvb2FJbWxNWXBvbWhhZ21LUFdCMyIsInN1YiI6InJGTlBnRGw5b29hSW1sTVlwb21oYWdtS1BXQjMiLCJpYXQiOjE1OTEzMzU5MjEsImV4cCI6MTU5MTMzOTUyMSwiZW1haWwiOiJhbGVqby5jYXN0YS5hbEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjExNzUwNTE1OTAwOTMzNDYzODQ5MCJdLCJlbWFpbCI6WyJhbGVqby5jYXN0YS5hbEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.DcfEefBHtvI_9HmS70dkce3zI5n2AorBWiGY7pF6jWYOSu1rJr-ybt_EYCkIfp5FrhZHodoRbDeQNIYFx4OqEIUseUZ9RaToBMhJJlAZY75R08ypKwHO1g8aVw_AIwEBZ_BrM1uS67F11JtDmaNYlZpOAlfeXcRiYMRpogEB22tsvrqU3Qqz3ejFFw4rPG8s2yU8X4dkE8GxKiBEksV44r-KktggcPEo8TAoO0rBuiPmClo12wKveF1Gor-Z2LgSzyb-Fp2bX7ZBs-qXdmtiSaCweIZoB5rZkikr3WusEHB3kACF5EauOS0SMBxaLBcBTmgnFfAKiuEP_qZCJ0maFw'
+    const token = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0Mzg3ZGUyMDUxMWNkNDgzYTIwZDIyOGQ5OTI4ZTU0YjNlZTBlMDgiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiQWxlamFuZHJvIENhc3Rhw7FvIiwicGljdHVyZSI6Imh0dHBzOi8vbGg1Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8tdk1ZLXVJeVN1alEvQUFBQUFBQUFBQUkvQUFBQUFBQUFLWjQvQU1adXVja2J4cHhRT2R5S2ZxRHhncmVoV054RUNEaXZ5QS9waG90by5qcGciLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVudHJvb21zLTIwMTkyIiwiYXVkIjoicmVudHJvb21zLTIwMTkyIiwiYXV0aF90aW1lIjoxNTkxMzQ5NTgyLCJ1c2VyX2lkIjoickZOUGdEbDlvb2FJbWxNWXBvbWhhZ21LUFdCMyIsInN1YiI6InJGTlBnRGw5b29hSW1sTVlwb21oYWdtS1BXQjMiLCJpYXQiOjE1OTEzODgzOTIsImV4cCI6MTU5MTM5MTk5MiwiZW1haWwiOiJhbGVqby5jYXN0YS5hbEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjExNzUwNTE1OTAwOTMzNDYzODQ5MCJdLCJlbWFpbCI6WyJhbGVqby5jYXN0YS5hbEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.Tskq5p1lCKieGy7w6Yqg6PCHEI0DDCpNF7xs9jzsFKkFmsrE5EyXVog3uLCRdClntRxIzU0km0twc2iNvgYDDzm713lfAtIC5V5PLg3aGmbK64DJ--vVNOXvPnqJP7HbekUUNZ1eT2Sm0y4gTbV9DM3Ci7P0MkBGWHei1t4BDnXIStyzIR6DIVotT1ItdA3S-X43etLA860zyAmFTD1vgQNEkU-hAteZGHiC6kcnYpg-AySt_cxmOn-3bofEgT-aW3m3ZymSUI-rA8qMQe22B0SoVwl7T8qMEp72FdRAoF4MK3fDBsOE8CRXNiXUSyYJkgNRWwtfgs0sA7LJUC6Llg"
     const header = {
       headers: {
         'authtoken': token
@@ -51,7 +49,6 @@ const CardDetails = ({ checkin, checkout, id, img, city, price, totalPrice, real
     <div className="card-details-container">
       <div className="card-details-first">
         <h1 className="card-details-title">{name}</h1>
-        <b className="card-details-city">{city}</b>
       </div>
       <div className="card-details-image">
         <ImageVysor width="100%" src={img} alt="demo" description="details">
@@ -60,34 +57,27 @@ const CardDetails = ({ checkin, checkout, id, img, city, price, totalPrice, real
       </div>
       <div className="card-details-right">
         <h2 className="card-details-description">Descripción</h2>
-        <p>Esta habitación no posee descripción</p>
-
-        <h1>Precio: {totalPrice}</h1>
-        <br />
-        <div id="reservar">
-          <input className="input" id="email" />Ingrese su email para reservar
-        <br />
-          <button className="mail-button" onClick={reservar}>Reservar</button></div>
+        <p>Este hermoso edificio cuenta con 12 pisos y 22 Modernos, amplios y confortables Apartamentos tipo Junior suite, Junior Twin de un solo ambiente y Aparta suites de dos alcobas, todos dotados de cocina con barra americana, balcón, escritorio entre otros. Nuestro apartamento dúplex ofrece una hermosa vista ...</p>
+        <hr />
+        <b className="card-details-city">{city}</b>
+        <b className="card-details-text"> a 1.0 km del Centro</b><br/>
+        <b className="card-details-price">Precio: {totalPrice}</b><hr />
+        <div className="card-details-form">
+          <input className="card-details-input" id="email" placeholder="Por favor, Ingrese su email" />
+          <button className="card-details-button" onClick={reservar}>Reservar</button>
+        </div>
       </div>
       <div className="card-details-services">
         <b>Servicios:</b>
         {services.map((service, i) => { return <span className="card-details-service">{service}</span> })}
       </div>
       <div className="card-details-realstate">
-        <img width="50px" src={realStateLogo} alt="Logo" />
         <b>Inmobiliaria: </b>
         <span>{realState}</span>
+        <img width="50px" src={realStateLogo} alt="Logo" />
       </div>
     </div>
   );
 };
-
-// CardDetails.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   city: PropTypes.string.isRequired,
-//   imgs: PropTypes.string.isRequired,
-//   price: PropTypes.number.isRequired,
-//   realState: PropTypes.string.isRequired,
-// };
 
 export default CardDetails;

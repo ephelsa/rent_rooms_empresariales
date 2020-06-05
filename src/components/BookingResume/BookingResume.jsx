@@ -29,7 +29,7 @@ BookingResume.propTypes = {
   title: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired,
 };
 
 export default BookingResume;
