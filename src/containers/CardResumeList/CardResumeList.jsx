@@ -9,8 +9,9 @@ class CardResumeList extends Component {
 
   busquedaGeneral(query) {
     const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/search";
-    const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/search"
+    const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/search";
     const urlBackendLambda = "https://0kaup1m6dg.execute-api.us-east-1.amazonaws.com/dev/rooms/search";
+    const urlBackendScala = "https://rent-rooms.herokuapp.com/rooms/search";
 
     axios.get(urlBackendLambda + query)
       .then(responseLambda => {
@@ -74,6 +75,26 @@ class CardResumeList extends Component {
         })
       })
       .catch(e => { console.log(e); })
+
+      axios.get(urlBackendScala + query)
+      .then(responsePython => {
+        var habitacionesDesdePython = responsePython.data; //Aquí estan las habitaciones desde Python
+        habitacionesDesdePython.map(elemento => {
+          this.setState({
+            cards: [...this.state.cards, {
+              id: elemento.id,
+              title: elemento.property_name,
+              city: elemento.location.name,
+              img: elemento.thumbnail,
+              price: elemento.price,
+              agency: elemento.agency,
+              key: elemento.id + elemento.agency.id
+            }]
+          });
+          return null;
+        })
+      })
+      .catch(e => { console.log(e); })
   }
 
   constructor(props) {
@@ -98,13 +119,18 @@ class CardResumeList extends Component {
   }
 
   render() {
+    const formatterPeso = new Intl.NumberFormat('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      minimumFractionDigits: 0
+    })
     const mesaje = <h1>No se encontraron resultados</h1>
     const cards = this.state.cards.map((card, index) => (
       <CardResume id={card.id}
         title={card.title}
         city={card.city}
         img={card.img}
-        price={card.price}
+        price={formatterPeso.format(card.price)}
         agency={card.agency}
         onCardResumeClick={(room, agency) => this.handleCardDetails(room, agency)}
         raiting={4.5}

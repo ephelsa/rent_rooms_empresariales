@@ -20,7 +20,7 @@ const Navbar = (props) => (
         </div>
         <Link to="/home"><img src={Logo} alt="Logo" /></Link>
         <div className="left">
-            <Link to="/reservas">Mis reservas</Link>
+            <Link to="/booking">Mis reservas</Link>
             {
                 props.firebase
                 ? <Link to="#" onClick={() => logout(props.firebase)}>Cerrar sesión</Link>

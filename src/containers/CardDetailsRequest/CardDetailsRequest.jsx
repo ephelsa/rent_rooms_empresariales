@@ -22,11 +22,13 @@ class CardDetailsRequest extends Component {
     const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/";
     const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/";
     const urlBackendLambda = "https://0kaup1m6dg.execute-api.us-east-1.amazonaws.com/prod/rooms/";
+    const urlBackendScala = "https://rent-rooms.herokuapp.com/rooms/";
 
     switch (agencyName) {
       case 'Python': return urlBackendPython;
       case 'Arrendamientos njs': return urlBackendNode;
       case 'Lambda Team': return urlBackendLambda;
+      case 'Agencia Scala': return urlBackendScala;
       default: return '----';
     }
   }

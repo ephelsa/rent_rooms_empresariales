@@ -12,21 +12,20 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 class Login extends Component {
 
   state = {
-    token: ''
+    token: ""
   }
 
   tokenHandler = (user) => {
     const googleAPI = "https://securetoken.googleapis.com/v1/token?key=AIzaSyARTPou47LqLMxfpS5jqjUXHTxps-SqjM8&grant_type=refresh_token&refresh_token="
-    axios.post(googleAPI + user.refreshToken)
-      .then(res => {
-        this.setState({
-          token: res.data.access_token
-        })
-        return null;
+    axios.post(googleAPI + user.refreshToken).then(res => {
+      console.log(res)
+      this.setState({
+        token: res.data.access_token
       })
-      .catch(e => {
-        console.log(e);
-      })
+      return null;
+    }).catch(e => {
+      console.log(e);
+    })
   }
 
   render() {

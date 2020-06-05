@@ -1,5 +1,6 @@
-.card-resume-container {
-  width: 17%;
+.card-booking-container {
+  width: 28%;
+  min-height: 380px;
   display: inline-block;
   background-color: var(--color-white);
   border-radius: var(--radius-card-resume);
@@ -7,21 +8,19 @@
   cursor: pointer;
   transition: ease-in-out 0.3s;
   padding: 26px 15px;
-  padding-top: 15px;
   margin: 10px 5px;
-  max-width: 250px;
   position: relative;
 }
 
-.card-resume-container:hover {
+.card-booking-container:hover {
   box-shadow: 10px 10px 20px -10px var(--color-primary);
 }
 
-.card-resume-container span {
+.card-booking-container span {
   display: block;
 }
 
-.card-resume-title {
+.card-booking-title {
   font-size: 22px;
   font-family: var(--font-secondary);
   font-weight: 200;
@@ -32,13 +31,41 @@
   overflow: hidden;
 }
 
-.card-resume-city {
+.card-booking-check {
+  height: 55px;
+  margin: 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: var(--font-secondary);
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.card-booking-checkin {
+  margin-right: auto;
+}
+
+.card-booking-checkout {
+  margin-left: auto;
+}
+
+.card-booking-citytext {
+  font-size: 15px;
+  text-align: left;
+}
+
+.card-booking-city {
   font-family: var(--font-secondary);
   margin-bottom: 4px;
   color: var(--color-black);
 }
 
-.card-resume-realstate {
+.card-booking-text {
+  font-family: var(--font-secondary);
+  font-weight: 200;
+}
+
+.card-booking-realstate {
   font-family: var(--font-secondary);
   font-size: 14px;
   color: var(--color-black);
@@ -48,14 +75,4 @@
   margin-right: 16px;
   margin-left: 16px;
   color: var(--color-secondary);
-}
-
-.card-resume-text {
-  font-family: var(--font-secondary);
-  font-weight: 200;
-}
-
-.card-resume-citytext {
-  font-size: 15px;
-  text-align: left;
 }
