@@ -1,5 +1,3 @@
-![Tests](https://github.com/ephelsa/rent_rooms_empresariales/workflows/Node.js/badge.svg)
-
 # Rent & Rooms 🏡
 > Aplicación hecha en React para la materia de Desarrollo de aplicaciones empresariales.
 
@@ -15,8 +13,9 @@ Integrantes:
 
 Se tienen divididos los entornos de la siguiente manera:
 * [Desarrollo](https://developrentandrooms.now.sh/), está relacionada a la rama `develop`. 
-* [Producción](rentandrooms.now.sh), está relacionada a la rama `master`.
+* [Producción](rentandrooms.now.sh), está relacionada a la rama `master`
 
 ## Pruebas
 > Está hechas en [Cypress](https://www.cypress.io/).
 
+Las pruebas son realizadas utilizando Actions de Github cuando se realizan _push_. Esto, según la documentación de Cypress, es una práctica recomendada.
