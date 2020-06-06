@@ -18,4 +18,5 @@ jobs:
         with:
           node-version: 12
       - run: npm install
+      - run: npm start
       - run: npm run test
