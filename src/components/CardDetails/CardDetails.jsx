@@ -25,6 +25,7 @@ function CardDetails ({ checkin, checkout, id, img, city, price, totalPrice, rea
     const email = localStorage.getItem('email')
     const baseUrl = getBaseUrl(realState)
     const token = localStorage.getItem('token')
+
     const header = {
       headers: {
         'authtoken': token
