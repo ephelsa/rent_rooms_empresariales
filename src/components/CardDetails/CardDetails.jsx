@@ -61,7 +61,6 @@ function CardDetails ({ checkin, checkout, id, img, city, price, totalPrice, rea
         <b className="card-details-text"> a 1.0 km del Centro</b><br/>
         <b className="card-details-price">Precio: {totalPrice}</b><hr />
         <div className="card-details-form">
-          <input className="card-details-input" id="email" placeholder="Por favor, Ingrese su email" />
           <button className="card-details-button" onClick={reservar}>Reservar</button>
         </div>
       </div>
