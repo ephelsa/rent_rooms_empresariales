@@ -1,5 +1,5 @@
 .searchbar {
-  background-color: var(--color-light);
+  background-color: transparent;
   border-radius: var(--radius-border);
   position: sticky;
   width: 50%;
@@ -11,35 +11,32 @@
   z-index: 1000;
 }
 
-.date-container-button {
-  right: 0%;
-  display: flex;
-  position: absolute;
-}
-
 .date-container-left {
   cursor: pointer;
-  height: 32px;
+  width: auto;
+  padding: 8px 19px;
+  border-radius: 0px;
   border: 2px solid var(--color-primary);
-  border-right: 1px;
   font-size: var(--font-size);
   text-align: center;
 }
 
 .date-container-right {
   cursor: pointer;
-  padding-left: 16px;
-  height: 32px;
+  width: auto;
+  padding: 8px 17px;
+  border-radius: 0px;
   border: 2px solid var(--color-primary);
-  border-left: 1px;
   font-size: var(--font-size);
+  text-align: center;
 }
 
 .searchbar-button {
   background-color: var(--color-primary);
   color: var(--color-font-inverse);
   cursor: pointer;
-  height: 40px;
+  width: auto;
+  height: 38px;
   display: inline-block;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -48,6 +45,7 @@
   border-top-right-radius: var(--radius-border);
   border-bottom-right-radius: var(--radius-border);
   font-size: var(--font-size);
+  border-color: var(--color-primary);
 }
 
 .searchbar-button:hover {

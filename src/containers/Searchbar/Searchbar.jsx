@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import { registerLocale } from "react-datepicker";
-import Dropdown from '../Dropdown/Dropdown';
-import './Searchbar.css';
-import es from 'date-fns/locale/es';
 import DatePicker from "react-datepicker";
+import es from 'date-fns/locale/es';
+import Dropdown from '../Dropdown/Dropdown';
 import moment from 'moment'
-import axios from 'axios';
+import './Searchbar.css';
 import "react-datepicker/dist/react-datepicker.css";
-import { useHistory } from 'react-router-dom'
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 
 const options = [
   { id: 'MDE', value: 'Medellín' },
@@ -23,93 +20,18 @@ const options = [
   { id: 'IBE', value: 'Ibagué' },
 ];
 
-const Searchbar = (props) => {
-  const history = useHistory();
-
-  const busquedadetallesHabitaciones = () => {
-    const urlBackendLambda = "https://34ld77s309.execute-api.us-east-1.amazonaws.com/prod/rooms/";
-    const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/rooms/";
-    const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/";
-    var idHabitacion1 = "5eb24077bf3587508244c267";
-    var idHabitacion2 = "1";
-    axios.get(urlBackendLambda + idHabitacion2)
-      .then(responseLambda => {
-        var detallesDesdeLambda = responseLambda; //Aquí estan los detalles desde lambda 
-        console.log(detallesDesdeLambda);
-      })
-      .catch(e => {
-        console.log(e);
-      })
-    axios.get(urlBackendNode + idHabitacion1)
-      .then(responseNodeJs => {
-        var detallesDesdeNode = responseNodeJs.data; //Aquí estan los detalles desde Node 
-        console.log(detallesDesdeNode);
-      })
-      .catch(e => {
-        console.log(e);
-      })
-    axios.get(urlBackendPython + idHabitacion2)
-      .then(responsePython => {
-        var DetallesDesdePython = responsePython.data; //Aquí estan los detalles desde Python
-        console.log(DetallesDesdePython);
-      })
-      .catch(e => {
-        console.log(e);
-      })
-  }
-
-
-  const reservarHabitaciones = () => {
-    const urlBackendLambda = "";
-    const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/booking";
-    const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/booking";
-    var idHabitacion1 = "5eb24077bf3587508244c267";
-    var idHabitacion2 = "1";
-    /*
-    Error de este Backend
-    axios.post(urlBackendLambda+idHabitacion2)
-    .then(responseLambda => {
-     var detallesDesdeLambda=responseLambda; //Aquí estan los detalles desde lambda 
-     console.log(detallesDesdeLambda);
-      })
-    .catch(e => {
-        console.log(e);
-    })*/
-    axios.post(urlBackendNode, {
-      checkin: "2020-07-06",
-      checkout: "2020-07-10",
-      email: "johanc.suarez@hotmail.com",
-      name: "Pedro",
-      id_room: idHabitacion1
-    })
-      .then(responseNodeJs => {
-        var detallesDesdeNode = responseNodeJs.data; //Aquí estan los detalles desde Node 
-        console.log(detallesDesdeNode);
-      })
-      .catch(e => {
-        console.log(e);
-      })
-  }
-
-  registerLocale('es', es)
+const Searchbar = () => {
   const [destination, setDestination] = useState('');
-
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const history = useHistory();
+  registerLocale('es', es)
+  
   const destinationCallback = (dest) => {
     setDestination(dest);
   }
 
-  const [startDate, setStartDate] = useState(null);
-  const handleOnBlur = ({ target: { value } }) => {
-    const Checkin = new Date(value);
-    console.log("Checkin=", Checkin.getFullYear(Checkin, "yyyy"), "-", Checkin.getMonth(Checkin, "MM"), "-", Checkin.getDate(Checkin, "dd"));
-  };
-  const [endDate, setEndDate] = useState(null);
-  const handleOnBlur1 = ({ target: { value } }) => {
-    const Checkout = new Date(value);
-    console.log("Checkout=", Checkout.getFullYear(Checkout, "yyyy"), Checkout.getMonth(Checkout, "MM"), Checkout.getDate(Checkout, "dd"));
-  };
-
-  function datasearch() {
+  const datasearch = () => {
     const Datastar = moment(startDate).format('YYYY-MM-DD')
     const Dataend = moment(endDate).format('YYYY-MM-DD')
     let query = `?location=${destination.id}&checkin=${Datastar}&checkout=${Dataend}`
@@ -129,14 +51,12 @@ const Searchbar = (props) => {
         className="date-container-left"
         onChange={date => setStartDate(date)}
         locale="es"
-        title="fechas"
         selected={startDate}
         selectsStart
         startDate={startDate}
         minDate={new Date()}
         endDate={endDate}
         key="1"
-        onBlur={handleOnBlur}
         placeholderText="Fecha Entrada "
       />
       <DatePicker
@@ -149,12 +69,9 @@ const Searchbar = (props) => {
         endDate={endDate}
         minDate={startDate}
         key="2"
-        onBlur={handleOnBlur1}
         placeholderText="Fecha Salida "
       />
-      <div className="date-container-button">
-        <button className="searchbar-button" onClick={datasearch}>Buscar</button>
-      </div>
+      <button className="searchbar-button" onClick={datasearch}>Buscar</button>
     </div>
   );
 }
