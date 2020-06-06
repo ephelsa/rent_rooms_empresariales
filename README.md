@@ -1,3 +1,7 @@
+![End-to-end Tests](https://github.com/ephelsa/rent_rooms_empresariales/workflows/End%20to%20end%20tests/badge.svg)
+![Vercel develop](https://badgen.net/github/status/ephelsa/rent_rooms_empresariales/develop?icon=zeit&label=CI)
+![Vercel prod](https://badgen.net/github/status/ephelsa/rent_rooms_empresariales/master?icon=zeit&label=CI)
+
 # Rent & Rooms 🏡
 > Aplicación hecha en React para la materia de Desarrollo de aplicaciones empresariales.
 
@@ -18,3 +22,4 @@ Se tienen divididos los entornos de la siguiente manera:
 ## Pruebas
 > Está hechas en [Cypress](https://www.cypress.io/).
 
+Las pruebas son realizadas utilizando Actions de Github cuando se realizan _push_. Esto, según la documentación de Cypress, es una práctica recomendada.
