@@ -4,7 +4,7 @@ import withFirebaseAuth from 'react-with-firebase-auth'
 import * as firebase from 'firebase/app';
 import firebaseConfig from '../../firebaseConfig';
 import 'firebase/auth';
-import './Login.css';
+import './login.css';
 import Aux from '../../hoc/Auxiliar'
 import axios from 'axios';
 
