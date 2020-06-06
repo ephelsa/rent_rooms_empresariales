@@ -8,6 +8,7 @@ import Dropdown from '../Dropdown/Dropdown';
 import moment from 'moment'
 import './Searchbar.css';
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from 'sweetalert2'
 
 const options = [
   { id: 'MDE', value: 'Medellín' },
@@ -34,6 +35,10 @@ const Searchbar = () => {
   const datasearch = () => {
     const Datastar = moment(startDate).format('YYYY-MM-DD')
     const Dataend = moment(endDate).format('YYYY-MM-DD')
+    if (destination.id === undefined || Datastar === "Invalid date" || Dataend === "Invalid date"){
+      Swal.fire('Por favor ingrese todos los datos')
+      return null
+    }
     let query = `?location=${destination.id}&checkin=${Datastar}&checkout=${Dataend}`
     history.push(`search${query}`)
   }
