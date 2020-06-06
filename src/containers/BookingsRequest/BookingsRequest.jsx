@@ -13,9 +13,8 @@ class BookingsRequest extends Component {
     }
 
     componentDidMount() {
-        const email = "alejo.casta.al@gmail.com"
-        // const email = "leon.arango@udea.edu.co"
-        const token = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0Mzg3ZGUyMDUxMWNkNDgzYTIwZDIyOGQ5OTI4ZTU0YjNlZTBlMDgiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiQWxlamFuZHJvIENhc3Rhw7FvIiwicGljdHVyZSI6Imh0dHBzOi8vbGg1Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8tdk1ZLXVJeVN1alEvQUFBQUFBQUFBQUkvQUFBQUFBQUFLWjQvQU1adXVja2J4cHhRT2R5S2ZxRHhncmVoV054RUNEaXZ5QS9waG90by5qcGciLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVudHJvb21zLTIwMTkyIiwiYXVkIjoicmVudHJvb21zLTIwMTkyIiwiYXV0aF90aW1lIjoxNTkxMzk1NDI3LCJ1c2VyX2lkIjoickZOUGdEbDlvb2FJbWxNWXBvbWhhZ21LUFdCMyIsInN1YiI6InJGTlBnRGw5b29hSW1sTVlwb21oYWdtS1BXQjMiLCJpYXQiOjE1OTEzOTU0MzIsImV4cCI6MTU5MTM5OTAzMiwiZW1haWwiOiJhbGVqby5jYXN0YS5hbEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjExNzUwNTE1OTAwOTMzNDYzODQ5MCJdLCJlbWFpbCI6WyJhbGVqby5jYXN0YS5hbEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.jzeUYV1jkA2SsQKqQC9x0EpzrCs-UkwqjKupO3Z-7dL40XEbUf2xLm0I4Xm6RDHXJohgUlFzF6s7W2qrFWo8wSq9C7LiPQxjPP5YYEZDQGLh8nQOvpM-TS6LWBJXfUtuV3H_FeuS1GrdBJX7BB-HHiD7wz3T16Aq-x8RzjjBErdhW7ctynQ_OOKUOjQR8rkWKgLHDTg3-5SV-_ksM3lgJ_9Jgdn6oWzUOK0z_B4BFYuXs7b2nAX8iREi-UQyvIjsKZdEXsLw7iEe2sQ_pusFx7ghm6Zs77AvO9pwn88XJiSHYvHO6CALTPYzoMADyMmbwfzSRNp6-G6afG4wc46zqw"
+        const email = localStorage.getItem('email')
+        const token = localStorage.getItem('token')
         this.getBookings(token, email)
     }
 
@@ -39,7 +38,7 @@ class BookingsRequest extends Component {
                         name: data.property_name,
                         city: data.location.name,
                         thumbnail: data.thumbnail,
-                        total_price: data.price,
+                        total_price: data.total_price,
                         agency: data.agency.name,
                         checkin: data.checkin,
                         checkout: data.checkout,
@@ -77,15 +76,15 @@ class BookingsRequest extends Component {
             res.data.map(data => {
                 this.setState({
                     cards: [...this.state.cards, {
-                        id: data.id,
+                        id: data.id_room,
                         name: data.property_name,
                         city: data.location.name,
                         thumbnail: data.thumbnail,
-                        total_price: data.price,
+                        total_price: data.total_price,
                         agency: data.agency.name,
                         checkin: data.checkin,
                         checkout: data.checkout,
-                        key: data.id + data.agency.id
+                        key: data.id_room + data.agency.id
                     }]
                 });
                 return null;
