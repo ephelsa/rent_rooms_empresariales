@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /// <reference types="cypress" />
 
 context('Actions', () => {
@@ -59,6 +60,7 @@ context('Actions', () => {
     // https://on.cypress.io/submit
     cy.get('.action-form')
       .find('[type="text"]').type('HALFOFF')
+    // eslint-disable-next-line no-undef
     cy.get('.action-form').submit()
       .next().should('contain', 'Your form has been submitted!')
   })
