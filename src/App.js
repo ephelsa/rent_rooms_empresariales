@@ -6,7 +6,7 @@ import Layout from './containers/Layout/Layout';
 import Main from './components/Main/Main'
 import Cards from './containers/CardResumeList/CardResumeList'
 import Details from './containers/CardDetailsRequest/CardDetailsRequest'
-import Login from './containers/Login/Login'
+import Login from './containers/login/login'
 import Booking from './containers/BookingsRequest/BookingsRequest'
 
 function App() {
