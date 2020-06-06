@@ -1,8 +1,10 @@
 /* eslint-disable no-undef */
+const baseUrl = process.env.VERCEL_URL || 'http://localhost:3000'
+
 describe('rent_rooms test' , () =>{
    
     it('visit',()=>{
-        cy.visit('/');
+        cy.visit(baseUrl);
         
     });
     it('Button exists', () => {

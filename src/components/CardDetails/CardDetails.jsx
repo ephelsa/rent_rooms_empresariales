@@ -2,10 +2,14 @@ import React from 'react';
 import Raiting from '../Raiting/Raiting';
 import ImageVysor from '../ImageVysor/ImageVysor';
 import axios from 'axios';
+import Swal from 'sweetalert2'
 import './CardDetails.css';
+import { useHistory } from 'react-router';
 
-function CardDetails ({ checkin, checkout, id, img, city, price, totalPrice, realState, realStateLogo, name, rating, services }) {
-  
+function CardDetails(props) {
+  const { checkin, checkout, id, img, city, totalPrice, realState, realStateLogo, name, rating, services } = props
+  const history = useHistory()
+
   function getBaseUrl(agencyName) {
     const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/booking";
     const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/booking";
@@ -40,7 +44,9 @@ function CardDetails ({ checkin, checkout, id, img, city, price, totalPrice, rea
       id_room: id
     }, header)
       .then(res => {
-        alert("Su reserva ha sido realizada, revise su email.")
+        Swal.fire('Reserva realizada con exito')
+      }).catch(e => {
+        history.push('/login')
       });
   }
 
@@ -59,7 +65,7 @@ function CardDetails ({ checkin, checkout, id, img, city, price, totalPrice, rea
         <p>Este hermoso edificio cuenta con 12 pisos y 22 Modernos, amplios y confortables Apartamentos tipo Junior suite, Junior Twin de un solo ambiente y Aparta suites de dos alcobas, todos dotados de cocina con barra americana, balcón, escritorio entre otros. Nuestro apartamento dúplex ofrece una hermosa vista ...</p>
         <hr />
         <b className="card-details-city">{city}</b>
-        <b className="card-details-text"> a 1.0 km del Centro</b><br/>
+        <b className="card-details-text"> a 1.0 km del Centro</b><br />
         <b className="card-details-price">Precio: {totalPrice}</b><hr />
         <div className="card-details-form">
           <button className="card-details-button" onClick={reservar}>Reservar</button>
@@ -67,7 +73,7 @@ function CardDetails ({ checkin, checkout, id, img, city, price, totalPrice, rea
       </div>
       <div className="card-details-services">
         <b>Servicios:</b>
-        {services.map((service, i) => { return <span className="card-details-service">{service}</span> })}
+        {services.map((service, i) => { return <span key={i} className="card-details-service">{service}</span> })}
       </div>
       <div className="card-details-realstate">
         <b>Inmobiliaria: </b>
