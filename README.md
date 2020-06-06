@@ -1,4 +1,4 @@
-![Node.js](https://github.com/ephelsa/rent_rooms_empresariales/workflows/Node.js/badge.svg)
+![Tests](https://github.com/ephelsa/rent_rooms_empresariales/workflows/Node.js/badge.svg)
 
 # Rent & Rooms 🏡
 > Aplicación hecha en React para la materia de Desarrollo de aplicaciones empresariales.
