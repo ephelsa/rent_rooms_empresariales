@@ -100,9 +100,10 @@
 
 .card-details-button {
   background-color: var(--color-primary);
+  width: 200px;
   color: var(--color-font-inverse);
   cursor: pointer;
-  height: 30px;
+  height: 50px;
   display: inline-block;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -115,11 +116,4 @@
 
 .card-details-button:hover {
   filter: brightness(1.1);
-}
-
-.card-details-input {
-  width: 80%;
-  border: 2px solid var(--color-primary);
-  border-radius: 4px;
-  padding: 5px;
 }

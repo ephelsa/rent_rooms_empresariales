@@ -4,8 +4,8 @@ import ImageVysor from '../ImageVysor/ImageVysor';
 import axios from 'axios';
 import './CardDetails.css';
 
-const CardDetails = ({ checkin, checkout, id, img, city, price, totalPrice, realState, realStateLogo, name, rating, services }) => {
-
+function CardDetails ({ checkin, checkout, id, img, city, price, totalPrice, realState, realStateLogo, name, rating, services }) {
+  
   function getBaseUrl(agencyName) {
     const urlBackendNode = "http://ec2-13-58-217-208.us-east-2.compute.amazonaws.com/api/booking";
     const urlBackendPython = "http://ec2-34-195-214-219.compute-1.amazonaws.com:8000/rooms/booking";
@@ -22,9 +22,10 @@ const CardDetails = ({ checkin, checkout, id, img, city, price, totalPrice, real
   }
 
   function reservar() {
-    const email = document.getElementById('email').value;
+    const email = localStorage.getItem('email')
     const baseUrl = getBaseUrl(realState)
-    const token = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0Mzg3ZGUyMDUxMWNkNDgzYTIwZDIyOGQ5OTI4ZTU0YjNlZTBlMDgiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiQWxlamFuZHJvIENhc3Rhw7FvIiwicGljdHVyZSI6Imh0dHBzOi8vbGg1Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8tdk1ZLXVJeVN1alEvQUFBQUFBQUFBQUkvQUFBQUFBQUFLWjQvQU1adXVja2J4cHhRT2R5S2ZxRHhncmVoV054RUNEaXZ5QS9waG90by5qcGciLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVudHJvb21zLTIwMTkyIiwiYXVkIjoicmVudHJvb21zLTIwMTkyIiwiYXV0aF90aW1lIjoxNTkxNDA3NzUwLCJ1c2VyX2lkIjoickZOUGdEbDlvb2FJbWxNWXBvbWhhZ21LUFdCMyIsInN1YiI6InJGTlBnRGw5b29hSW1sTVlwb21oYWdtS1BXQjMiLCJpYXQiOjE1OTE0MDc3NTQsImV4cCI6MTU5MTQxMTM1NCwiZW1haWwiOiJhbGVqby5jYXN0YS5hbEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjExNzUwNTE1OTAwOTMzNDYzODQ5MCJdLCJlbWFpbCI6WyJhbGVqby5jYXN0YS5hbEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.FWYgLXprcYs_XfWlNXFS9fWIKiNxRHO0YATpxVC1iNjfDXaDq0-3EVIkTjui73hkPpaCb-tCRFGVYylOfdd0IxGsV9vpSqq06Idz7VOR7zXyb0PBMDgdXXornu4DEEiVUqXby-8aBkjKAxp2mE7kOsX8rcB-3iv502B8dyVf-NGw071Zc_UnZ8Ac94-RXwVl_gz6znfvH8tcwqc9o152iRr3fHqB9bBzv7AeClQOm30A4G5XY5OWIou3Q1avWJYncy_4DYy6TGkNm0KpVsBJHLMyu0B-LtbgzVAHQtC8vUDFrMFfaokk6COPut8jtRtOpYiyDWRurCQdJR5JQUslaw"
+    const token = localStorage.getItem('token')
+
     const header = {
       headers: {
         'authtoken': token
@@ -32,13 +33,11 @@ const CardDetails = ({ checkin, checkout, id, img, city, price, totalPrice, real
     }
 
     axios.post(baseUrl, {
-
       checkin,
       checkout,
       email: email,
       name: email,
       id_room: id
-
     }, header)
       .then(res => {
         alert("Su reserva ha sido realizada, revise su email.")
@@ -63,7 +62,6 @@ const CardDetails = ({ checkin, checkout, id, img, city, price, totalPrice, real
         <b className="card-details-text"> a 1.0 km del Centro</b><br/>
         <b className="card-details-price">Precio: {totalPrice}</b><hr />
         <div className="card-details-form">
-          <input className="card-details-input" id="email" placeholder="Por favor, Ingrese su email" />
           <button className="card-details-button" onClick={reservar}>Reservar</button>
         </div>
       </div>
