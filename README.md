@@ -13,7 +13,6 @@ Integrantes:
 
 Se tienen divididos los entornos de la siguiente manera:
 * [Desarrollo](https://developrentandrooms.now.sh/), está relacionada a la rama `develop`. 
-* [Producción](rentandrooms.now.sh), está relacionada a la rama `master`.
 * [Producción](https://rentandrooms.now.sh), está relacionada a la rama `master`
 
 ## Pruebas
