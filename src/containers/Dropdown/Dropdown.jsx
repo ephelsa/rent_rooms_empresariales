@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import './Dropdown.css';
 import DropdownItem from './DropdownItem/DropdownItem';
 
@@ -25,7 +24,7 @@ function useOutsideAlerter(ref, callback) {
   }, [ref, callback]);
 }
 
-function Dropdown({icon, onOptionSelected, placeHolder, options, borderType}) {
+function Dropdown({ icon, onOptionSelected, placeHolder, options, borderType }) {
   const [openState, setOpenState] = useState(false);
   const [optionState, setOptionState] = useState(null);
   const wrapperRef = useRef(null);
@@ -38,27 +37,26 @@ function Dropdown({icon, onOptionSelected, placeHolder, options, borderType}) {
   }, [optionState, onOptionSelected]);
 
   return (
-    <div ref={wrapperRef} className={"dropdown-container " + borderType} 
-        onClick={() => setOpenState(!openState)}>
+    <div ref={wrapperRef} className={"dropdown-container " + borderType}
+      onClick={() => setOpenState(!openState)}>
 
       <div className="option-selected">
-        {icon ? <FontAwesomeIcon icon={icon} color="white" /> : null }
+        {icon ? <FontAwesomeIcon icon={icon} color="white" /> : null}
         <label className="option-value">
           {optionState !== null ? optionState.value : placeHolder}
         </label>
-        {/*<FontAwesomeIcon icon={open ? faAngleUp : faAngleDown} color="white" />*/}
       </div>
 
-      <div className={ openState ? 'dropdown-container--opened' : 'dropdown-container--closed' }>
-        { 
+      <div className={openState ? 'dropdown-container--opened' : 'dropdown-container--closed'}>
+        {
           options.map(option => {
             const dropdownItem = (
-              <DropdownItem 
-                key={option.id} 
-                id={option.id} 
+              <DropdownItem
+                key={option.id}
+                id={option.id}
                 value={option.value}
                 onOptionSelected={setOptionState} />
-              );
+            );
 
             if (optionState !== null) {
               if (optionState.id !== option.id) {
@@ -67,9 +65,8 @@ function Dropdown({icon, onOptionSelected, placeHolder, options, borderType}) {
             } else {
               return dropdownItem;
             }
-
             return null;
-          }) 
+          })
         }
       </div>
     </div>

@@ -2,14 +2,16 @@
   display: grid;
   min-height: 80vh;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 8em 1fr 2em;
+  grid-template-rows: 7em 1fr 3em;
   margin: auto;
   width: 65%;
   background-color: var(--color-white);
   border-radius: 10px;
   padding: 26px 16px;
+  padding-top: 0px;
   box-shadow: 0px 3px 20px -13px var(--color-primary);
   transition: ease-in-out 0.3s;
+  font-family: var(--font-secondary);
 }
 
 .card-details-container:hover {
@@ -25,56 +27,93 @@
 }
 
 .card-details-title {
-  margin: 0px;
   font-family: var(--font-secondary);
   color: var(--color-primary);
 }
 
 .card-details-city {
-  color: var(--color-black);
-  font-family: var(--font-secondary);
-  font-size: 25px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.card-details-text {
   margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.card-details-price {
+  font-size: 30px;
+  font-weight: 400;
 }
 
 .card-details-image {
-  padding: 13px;
+  padding-right: 1%;
   grid-column: 1;
   grid-row: 2;
 }
 
 .card-details-right {
-  padding: 20px;
+  padding: 0px 20px;
   text-align: center;
 }
 
-.card-details-right p{
+.card-details-right p {
+  margin-top: 5px;
   text-align: justify;
-  margin-bottom: 100px;
 }
 
-.card-details-description{
-  margin-bottom: 20px;
+.card-details-description {
+  text-align: center;
+  margin: 0px;
 }
-
 
 .card-details-realstate {
   grid-column: 2;
   grid-row: 3;
   justify-self: center;
+  padding: 5px;
+  margin-top: 10px;
 }
 
 .card-details-realstate img {
-  margin-right: 20px;
+  margin-left: 10px;
   vertical-align: middle;
+  width: 30px;
 }
 
 .card-details-services {
   grid-column: 1;
   grid-row: 3;
-  padding: 15px;
+  padding: 5px;
+  margin-top: 10px;
 }
 
 .card-details-service {
   padding: 20px;
+}
+
+.card-details-form {
+  margin-top: 30px;
+  display: inline-flex;
+}
+
+.card-details-button {
+  background-color: var(--color-primary);
+  width: 200px;
+  color: var(--color-font-inverse);
+  cursor: pointer;
+  height: 50px;
+  display: inline-block;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-top-right-radius: var(--radius-border);
+  border-bottom-right-radius: var(--radius-border);
+  font-size: var(--font-size);
+}
+
+.card-details-button:hover {
+  filter: brightness(1.1);
 }

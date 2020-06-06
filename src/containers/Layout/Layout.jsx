@@ -9,7 +9,7 @@ class Layout extends Component {
   render() {
     return (
       <Aux>
-        <Navbar />
+        <Navbar firebase={this.props.firebase} />
         <div className="layout-content">{this.props.children}</div>
       </Aux>
     );

@@ -15,14 +15,14 @@
   filter: brightness(1.1);
 }
 
-.full-border {
+/* .full-border {
   border-radius: var(--radius-border);
 }
 
 .right-border {
   border-top-right-radius: var(--radius-border);
   border-bottom-right-radius: var(--radius-border);
-}
+} */
 
 .left-border {
   border-top-left-radius: var(--radius-border);

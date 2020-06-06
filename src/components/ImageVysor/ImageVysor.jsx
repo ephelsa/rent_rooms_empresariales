@@ -5,7 +5,7 @@ const ImageVysor = (props) => {
   return (
     <div className="image-vysor-container"  style={{ width: props.width }}>
       <span className="image-vysor-description">{props.children}</span>
-      <img className="image-vysor"
+      <img className={`image-vysor-${props.description}`}
         src={props.src} 
         alt={props.alt} />
     </div>
