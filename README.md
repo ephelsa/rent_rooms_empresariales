@@ -1,6 +1,7 @@
-![End-to-end Tests](https://github.com/ephelsa/rent_rooms_empresariales/workflows/End%20to%20end%20tests/badge.svg)
-![Vercel develop](https://badgen.net/github/status/ephelsa/rent_rooms_empresariales/develop?icon=zeit&label=CI)
-![Vercel prod](https://badgen.net/github/status/ephelsa/rent_rooms_empresariales/master?icon=zeit&label=CI)
+![Production end-to-end tests](https://github.com/ephelsa/rent_rooms_empresariales/workflows/Production%20End-to-End%20tests/badge.svg)
+![Push end-to-end tests](https://github.com/ephelsa/rent_rooms_empresariales/workflows/End%20to%20end%20tests/badge.svg)
+![Vercel develop](https://badgen.net/github/status/ephelsa/rent_rooms_empresariales/develop?icon=zeit&label=Develop)
+![Vercel prod](https://badgen.net/github/status/ephelsa/rent_rooms_empresariales/master?icon=zeit&label=Production)
 
 # Rent & Rooms 🏡
 > Aplicación hecha en React para la materia de Desarrollo de aplicaciones empresariales.
