@@ -10,7 +10,8 @@ class Layout extends Component {
     return (
       <Aux>
         <Navbar firebase={this.props.firebase} />
-        <div className="layout-content">{this.props.children}</div>
+        <div className="layout-content">
+          {this.props.children}</div>
       </Aux>
     );
   }
